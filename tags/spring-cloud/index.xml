@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring Cloud on 张志宇的博客</title>
+    <link>https://trumpzhang.github.io/tags/spring-cloud/</link>
+    <description>Recent content in Spring Cloud on 张志宇的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 04 Mar 2020 18:23:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://trumpzhang.github.io/tags/spring-cloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Feign</title>
+      <link>https://trumpzhang.github.io/blog/springcloud/feign/</link>
+      <pubDate>Wed, 04 Mar 2020 18:23:12 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/springcloud/feign/</guid>
+      <description>1.什么是Feign Feign是一个声明式的Web Service客户端，它的目的就是让Web Service调用更加简单。Feign提供了Http请求的模板，通过编写简单的接口和插入注解，就可以定义好Http请求的参数、格式、地址等信息。而Feign则会完全代理Http请求，我们只需要像调用方法一样调用它就可以完成服务请求及相关处理，这使得我们调用Http API更加优雅。 Feign整合了Ribbon和Hystrix，从而让Feign的使用更加方便。 2.Feign的特性
+ 可插拔的注解支持，包括Feign注解和JAX-RS注解; 支持可插拔的HTTP编码器和解码器; 支持Hystrix和它的Fallback; 支持Ribbon的负载均衡; 支持HTTP请求和响应的压缩。  这看起来有点像我们springmvc模式的Controller层的RequestMapping映射。这种模式是我们非常喜欢的。Feign是用@FeignClient来映射服务的。 Feign是以接口方式进行调用,而不是通过RestTemplate来调用,feign底层还是ribbon,并进行了封装,让我们调用起来更加方便。</description>
+    </item>
+    
+    <item>
+      <title>3.Hystrix</title>
+      <link>https://trumpzhang.github.io/blog/springcloud/3.hystrix%E6%96%AD%E8%B7%AF%E5%99%A8/</link>
+      <pubDate>Wed, 04 Mar 2020 18:22:12 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/springcloud/3.hystrix%E6%96%AD%E8%B7%AF%E5%99%A8/</guid>
+      <description>1.为什么需要断路器 1.1存在问题 在理想状态下，一个应用依赖的服务都是健康可用的，我们可以正常处理所有的请求。默认情况下tomcat只有一个线程池去处理的客户端发送的所有服务请求，这样在高并发情况下，如果客户端所有的请求堆积到同一个服务接口上，就会产生tomcat的所有线程池去处理该服务接口，可能会导致其他服务奔溃。 1.2简介 Hystrix，英文意思是豪猪，全身是刺，看起来就不好惹，是一种保护机制。 Hystrix是Netflix开源的一个延迟和容错库，用于隔离访问远程服务、第三方库，防止出现级联失败。 1.3雪崩效应 在复杂的微服务架构中的应用程序有很多的依赖，都会不可避免地在某些时候失败。高并发的依赖失败时如果没有隔离措施，当前应用服务就有被拖垮的风险。一个请求，可能需要调用多个微服务接口才能实现，会形成非常复杂的调用链路： 如图，一次业务请求，需要调用A、H、I、P四个服务，这四个服务又可能调用其它服务。 如果此时某个服务出现异常： 例如微服务I发生异常，请求阻塞，用户不会得到响应，则tomcat的这个线程不会释放，于是越来越多的用户请求到来，越来越多的线程会阻塞： 服务器支持的线程和并发数有限，请求一直阻塞，会导致服务器资源耗尽，从而导致所有其它服务不可用，形成雪崩效应。 Hystrix解决雪崩问题的手段包括：</description>
+    </item>
+    
+    <item>
+      <title>2.1Eureka高可用集群搭建</title>
+      <link>https://trumpzhang.github.io/blog/springcloud/eureka%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Wed, 04 Mar 2020 18:21:17 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/springcloud/eureka%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>Eureka高可用集群搭建 1.为什么需要集群 如果只有一个注册中心服务器，会存在单点故障所以要集群部署。这样即使集群中某个节点出现宕机等故障，系统仍可以从其他节点拉取微服务地址，从而正常运行。 2.集群搭建 生产环境把Eureka部署多个服务器就ok了,开发阶段可以使用同一台主机不同端口号来模拟集群：
+2.1 准备2个EurekaServer工程，需要相互注册 server1: 9000 server2: 9001</description>
+    </item>
+    
+    <item>
+      <title>2.服务注册与发现</title>
+      <link>https://trumpzhang.github.io/blog/springcloud/2.%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0eureka%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Wed, 04 Mar 2020 18:19:24 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/springcloud/2.%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0eureka%E5%9F%BA%E7%A1%80/</guid>
+      <description>2.1 微服务的注册中心
+注册中心相当于微服务架构中的“通讯录”，它记录了服务和服务地址的映射关系，在分布式架构中，服务会注册到这里，当服务需要调用其他服务时，就在这里找到服务的地址进行调用。
+2.1.1 注册中心的主要作用
+服务注册中心是微服务架构中非常重要的一个组件，在微服务架构里主要起到了协调者的一个作用，注册中心一般包含如下几个功能：
+（1）服务发现
+ 服务注册/反注册：保存服务提供者和服务调用者的信息 服务订阅/取消订阅：服务调用者订阅服务提供者的信息，最好有实时推送的功能 服务路由（可选）：具有筛选整合服务提供者的能力。  （2）服务配置</description>
+    </item>
+    
+  </channel>
+</rss>

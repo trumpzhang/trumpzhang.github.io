@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Django on 张志宇的博客</title>
+    <link>https://trumpzhang.github.io/categories/django/</link>
+    <description>Recent content in Django on 张志宇的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 04 Mar 2020 18:34:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://trumpzhang.github.io/categories/django/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Django框架实现在线考试系统</title>
+      <link>https://trumpzhang.github.io/blog/django/django%E6%A1%86%E6%9E%B6%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Wed, 04 Mar 2020 18:34:37 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/django/django%E6%A1%86%E6%9E%B6%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E8%80%83%E8%AF%95%E7%B3%BB%E7%BB%9F/</guid>
+      <description>1.Django的简介 Django是一个基于MVC构造的框架。但是在Django中，控制器接受用户输入的部分由框架自行处理，所以 Django 里更关注的是模型（Model）、模板(Template)和视图（Views），称为 MTV模式。它们各自的职责如下： |层次| 职责 | |&amp;ndash;|&amp;ndash;| |模型（Model），即数据存取层 |模型（Model），即数据存取层 | |模板(Template)，即表现层 |处理与表现相关的决定： 如何在页面或其他类型文档中进行显示。 | |视图（View），即业务逻辑层 |存取模型及调取恰当模板的相关逻辑。模型与模板的桥梁。 |</description>
+    </item>
+    
+  </channel>
+</rss>

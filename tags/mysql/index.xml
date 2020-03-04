@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on 张志宇的博客</title>
+    <link>https://trumpzhang.github.io/tags/mysql/</link>
+    <description>Recent content in mysql on 张志宇的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 04 Mar 2020 18:33:29 +0800</lastBuildDate>
+    
+	<atom:link href="https://trumpzhang.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CentOS7安装Mysql数据库</title>
+      <link>https://trumpzhang.github.io/blog/centos/centos7%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Wed, 04 Mar 2020 18:33:29 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/centos/centos7%E5%AE%89%E8%A3%85mysql%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description>CentOS7安装Mysql数据库 1.安装前的准备工作 (1)关闭selinux
+两种方式（建议2） #(1)临时关闭，及时生效，重启失效 [root@localhost ~]# setenforce 0 #(2)永久关闭，重启生效，永不失效 [root@localhost ~]# vi /etc/selinux/config 将SELINUX=enforcing修改为SELINUX=disabled，然后重启生效 (2)关闭防火墙</description>
+    </item>
+    
+  </channel>
+</rss>

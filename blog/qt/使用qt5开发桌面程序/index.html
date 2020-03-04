@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+  <meta charset="utf-8">
+  <title>张志宇的博客</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A coder">
+  <meta name="author" content="张志宇">
+  <meta name="generator" content="Hugo 0.65.1" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom">
+      <a class="navbar-brand mobile-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+          src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/trumpzhang/"><i class="ti-github"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+            src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io"> Home </a>
+          </li>
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/blog">Blog</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/contact">Contact</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://trumpzhang.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        
+        <a href="/categories/qt"
+          class="text-primary">Qt</a>
+        
+        <h2>使用Qt5开发桌面程序</h2>
+        <div class="mb-3 post-meta">
+          <span>By 张志宇</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>04 March 2020</span>
+          
+        </div>
+        
+        <img src="https://trumpzhang.github.io/images/qt/qt.jpg" class="img-fluid w-100 mb-4" alt="使用Qt5开发桌面程序">
+        
+        <div class="content mb-5">
+          <p>@<a href="Qt%E5%BC%80%E5%8F%91%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E5%AE%A2%E6%88%B7%E7%AB%AF">TOC</a></p>
+<h1 id="一qt的简介">一.Qt的简介</h1>
+<p>Qt 是一个1991年由Qt Company开发的跨平台C++图形用户界面应用程序开发框架。它既可以开发GUI程序，也可用于开发非GUI程序，比如控制台工具和服务器。基本上，Qt 同  Windows 平台上的 MFC，OWL，VCL，ATL 是同类型的东西。</p>
+<p>使用Qt有哪些优点：</p>
+<ul>
+<li>优良的跨平台性  一次编写，处处运行</li>
+<li>面向对象 模块化的设计</li>
+<li>丰富的 API 良好的开发文档</li>
+</ul>
+<p>使用Qt开发的著名程序有：</p>
+<ul>
+<li>Google Earth</li>
+<li>Opera(浏览器)</li>
+<li>VirtualBox(创建虚拟机)</li>
+<li>wps Office(著名办公软件)</li>
+</ul>
+<h1 id="二qt中的重要概念">二.Qt中的重要概念</h1>
+<h2 id="1信号与槽机制">1.信号与槽机制</h2>
+<p>用Java做过桌面程序的伙伴都知道，我们需要为按钮、文本输入框、窗体等各种组件添加事件监听器（鼠标监听器、键盘监听器）来与用户产生交互。在Qt中，信号与槽函数就负责交互任务。</p>
+<ul>
+<li>
+<h2 id="信号signal">信号(signal)</h2>
+</li>
+</ul>
+<p>作用：发出一个信号，可被所有对象监听，该信号是没有目的的，就像校园里的广播一样，所有人都会听到。在Qt中，这也称为信号的<strong>广播机制</strong>，如果有对象对这个信号感兴趣，那么它可以使用connect函数来连接此信号，将这个信号(signal)与自己的一个槽（slot）绑定来进行处理。</p>
+<ul>
+<li>
+<h2 id="槽slot">槽(slot)</h2>
+</li>
+</ul>
+<p>作用：接收到信号后要如何处理（进行什么动作），其本质是类的一个成员函数，和C++成员函数几乎无区别。可以为任意类型：public、protected、private，唯一区别在于：槽函数可以绑定信号，每当与槽函数绑定的信号被发射时，该槽函数将被触发调用。
+connect()函数最常用的一般形式：</p>
+<pre><code>connect(sender, &amp;Send::signal, receiver, &amp;Receiver::slot)
+</code></pre><p>可以解释为：
+sender:发送者
+signal:信号
+receiver:接收者
+slot:动作</p>
+<p>举个例子，在Qt4中：</p>
+<pre><code>connect(button, SIGNAL(clicked()), &amp;a, SLOT(quit()));
+</code></pre><p>现在有一个名为button的按钮，一个名为a的窗口，connect函数将按钮的点击信号绑定在a的一个槽函数，那么当按钮button被点击后，a执行quit操作。</p>
+<h2 id="2lambda表达式">2.Lambda表达式</h2>
+<p>在Qt5中，可以使用Lambda表达式来定义并创建匿名的函数对象，不过这是C++11引入的新特性，如果要使用Lambda表达式，必须在.pro文件中写入</p>
+<pre><code>CONFIG += c++11
+</code></pre><pre><code>connect(button, &amp;QPushButton::clicked,
+            // = :把外部所有局部变量、类中所有成员以值传递方式
+            // this: 类中所有成员以值传递方式
+            // &amp; : 把外部所有局部变量， 引用符号
+            [=]()
+            {
+                qDebug() &lt;&lt;&quot; button is clicked&quot;;
+            }
+            );
+</code></pre><h1 id="三使用qt设计师快速开发">三.使用Qt设计师快速开发</h1>
+<h2 id="1-环境搭建">1. 环境搭建</h2>
+<p>我使用Qt官方提供的Qt 5.12.3 安装时会安装Qt Creator 4.9.0 这个IDE,数据库使用Mysql x64 5.6版本.</p>
+<h3 id="1连接mysql数据库">（1）连接Mysql数据库</h3>
+<ul>
+<li>使用ODBC driver连接数据库，你需要先将驱动复制到Qt 安装目录下。
+驱动位置一般在你的数据库安装目录下（例如）：</li>
+</ul>
+<pre><code>C:\Program Files\MySQL\MySQL Server 5.6\lib
+</code></pre><p>复制上面目录下的  libmysql.dll文件到Qt安装目录的bin目录下：</p>
+<pre><code>C:\Qt\Qt5.12.3\5.12.3\mingw73_64\bin
+</code></pre><ul>
+<li>测试连接数据库是否成功
+打开Qt-&gt;New Project-&gt;Qt Widget Application-&gt;项目名称-&gt;mainWindow-&gt;勾选创建界面
+<img src="https://img-blog.csdnimg.cn/20190622124937953.gif" alt="在这里插入图片描述">
+在demo1.pro 后添加sql ，并点击小锤子图标，作用是编译但不运行，编译添加的sql模块
+<img src="https://img-blog.csdnimg.cn/2019062212520074.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+打开mainWindow.cpp,添加以下头文件代码：</li>
+</ul>
+<pre><code>#include&lt;QSqlDatabase&gt;
+#include&lt;QDebug&gt;
+#include&lt;QMessageBox&gt;
+#include&lt;QSqlError&gt;
+#include&lt;QSqlTableModel&gt;
+#include&lt;QSqlRecord&gt;
+</code></pre><p>编写连接数据库的代码</p>
+<pre><code>#include &quot;mainwindow.h&quot;
+#include &quot;ui_mainwindow.h&quot;
+
+#include&lt;QSqlDatabase&gt;
+#include&lt;QDebug&gt;
+#include&lt;QMessageBox&gt;
+#include&lt;QSqlError&gt;
+#include&lt;QSqlTableModel&gt;
+#include&lt;QSqlRecord&gt;
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui-&gt;setupUi(this);
+
+    
+    //连接数据库
+    QSqlDatabase db= QSqlDatabase::addDatabase(&quot;QMYSQL&quot;);
+    //设置数据库
+    db.setHostName(&quot;127.0.0.1&quot;);
+    db.setPort(3306);
+    db.setDatabaseName(&quot;book&quot;);
+    db.setUserName(&quot;root&quot;);
+    db.setPassword(&quot;123456&quot;);
+
+    //打开时数据库
+    if(!db.open() )
+    {
+        qDebug()&lt;&lt;&quot;连接失败&quot;;
+    }
+    else
+    {
+        qDebug()&lt;&lt;&quot;连接成功&quot;;
+
+    }
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+</code></pre><p>点击“运行”按钮，查看控制台信息
+<img src="https://img-blog.csdnimg.cn/20190622125918207.png" alt="连接后的信息">
+如果连接不成功，可能会出现以下问题：</p>
+<ul>
+<li>Qt连接MySQL的时候提示“QSqlDatabase: QMYSQL driver not loaded”，</li>
+</ul>
+<p>原因一：缺少文件
+解决办法:
+从 C:\Program Files\MySQL\MySQL Server 5.6\lib中将 libmysql.dll 文件复制C:\Qt\Qt5.12.3\5.12.3\mingw73_64\bin中。运行程序</p>
+<p>原因二：Qt Creator与MySQL位数不统一
+如果上面的方法试过了还是不行那么应该是你安装的MySQL和QT的位数不同，可以打开Mysql控制台 输入show variables like &lsquo;%version_%';
+即可查看Mysql位数。</p>
+<p>解决办法：
+查看Qt Creator的位数，若为32位，则去下载32位的 libmysql.dll（自行搜索），重新运行程序。</p>
+<h2 id="2设计你的窗口">2.设计你的窗口</h2>
+<p>我在book数据库中建立4张信息表，book(书籍表)、customer（客户表）、worker（职工表）、sale（销售信息表）</p>
+<p>Qt遵循MVC的设计模式：</p>
+<ul>
+<li>M (model)模型层，一般存放持久数据，Headers文件夹下的 <strong>.h</strong>文件</li>
+<li>V(view)视图层，将模型层中的数据显示出来，Forms文件夹下的 <strong>.ui</strong> 文件</li>
+<li>C(controller)控制层，负责从视图读取数据，并向模型发送数据，Sources文件夹下的 <strong>.cpp</strong> 文件</li>
+</ul>
+<h3 id="1添加4个选项卡来切换信息的显示">（1）添加4个选项卡来切换信息的显示</h3>
+<p>打开demo1-&gt;Forms-&gt;mainwindow.ui
+<img src="https://img-blog.csdnimg.cn/20190622154556139.gif" alt="在这里插入图片描述"></p>
+<h3 id="2为图书选项卡添加tableview控件和一些功能按钮">（2）为图书选项卡添加TableView控件和一些功能按钮</h3>
+<p><img src="https://img-blog.csdnimg.cn/20190622160828243.gif" alt="在这里插入图片描述"></p>
+<h3 id="3添加布局">（3）添加布局</h3>
+<p><img src="https://img-blog.csdnimg.cn/20190622162008901.gif" alt="在这里插入图片描述"></p>
+<h3 id="4将数据库的表与qsqltablemodel绑定再将qsqltablemodel放在tableview控件中显示">（4）将数据库的表与QSqlTableModel绑定，再将QSqlTableModel放在TableView(控件)中显示</h3>
+<p>先在mainwindow.h中添加头文件<!-- raw HTML omitted -->，并在private下声明一个私有QSqlTableModel 的对象</p>
+<pre><code>#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include &lt;QMainWindow&gt;
+#include&lt;QSqlTableModel&gt;
+
+namespace Ui {
+class MainWindow;
+}
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
+
+private slots:
+    void on_pushButton_clicked();
+
+private:
+    Ui::MainWindow *ui;
+    QSqlTableModel *bookModel;
+};
+
+#endif // MAINWINDOW_H
+
+</code></pre><p>在mainwindow.cpp中将表book与bookModel绑定，再将bookModel放在图书选项卡的tableView中显示</p>
+<pre><code>#include &quot;mainwindow.h&quot;
+#include &quot;ui_mainwindow.h&quot;
+
+#include&lt;QSqlDatabase&gt;
+#include&lt;QDebug&gt;
+#include&lt;QMessageBox&gt;
+#include&lt;QSqlError&gt;
+#include&lt;QSqlTableModel&gt;
+#include&lt;QSqlRecord&gt;
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui-&gt;setupUi(this);
+
+
+    //连接数据库
+    QSqlDatabase db= QSqlDatabase::addDatabase(&quot;QMYSQL&quot;);
+    //设置数据库
+    db.setHostName(&quot;127.0.0.1&quot;);
+    db.setPort(3306);
+    db.setDatabaseName(&quot;book&quot;);
+    db.setUserName(&quot;root&quot;);
+    db.setPassword(&quot;123456&quot;);
+
+    //打开时数据库
+    if(!db.open() )
+    {
+        qDebug()&lt;&lt;&quot;连接失败&quot;;
+    }
+    else
+    {
+        qDebug()&lt;&lt;&quot;连接成功&quot;;
+
+    }
+
+    bookModel=new QSqlTableModel();//为bookModel分配空间
+    bookModel-&gt;setTable(&quot;book&quot;);//指定表 ，此处将book表与bookModel绑定
+    bookModel-&gt;select();//显示表里所有数据
+    ui-&gt;tableView_book-&gt;setModel(bookModel);// 将bookModel放在tableView_book中
+
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+</code></pre><p>点击运行，查看效果
+<img src="https://img-blog.csdnimg.cn/20190622164816624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+但是发现，表头没有改过来，并且表里的数据可以直接修改，并且修改后数据库里的数据也同时被修改了，所以还需要设置表头和编辑策略</p>
+<pre><code>ui-&gt;tableView_book-&gt;setModel(bookModel);// 将bookModel放在tableView_book中
+    //设置表头
+    bookModel-&gt;setHeaderData(0,Qt::Horizontal,&quot;图书编号&quot;);
+    bookModel-&gt;setHeaderData(1,Qt::Horizontal,&quot;书名&quot;);
+    bookModel-&gt;setHeaderData(2,Qt::Horizontal,&quot;作者&quot;);
+    bookModel-&gt;setHeaderData(3,Qt::Horizontal,&quot;版次&quot;);
+    bookModel-&gt;setHeaderData(4,Qt::Horizontal,&quot;单价（元）&quot;);
+    bookModel-&gt;setHeaderData(5,Qt::Horizontal,&quot;出版社&quot;);
+    bookModel-&gt;setHeaderData(6,Qt::Horizontal,&quot;所属类别&quot;);
+    //设置model的编辑策略 为 手动提交修改
+    bookModel-&gt;setEditStrategy(QSqlTableModel::OnManualSubmit);
+</code></pre><h3 id="5为按钮添加事件监听器">（5）为按钮添加事件监听器</h3>
+<p>1.为<!-- raw HTML omitted -->添加按钮<!-- raw HTML omitted -->添加槽
+右击添加按钮-&gt;转到槽-&gt;clicked()，鼠标单击时，按钮发出signal,由槽函数接受处理<img src="https://img-blog.csdnimg.cn/20190622162325500.gif" alt="在这里插入图片描述"></p>
+<pre><code>void MainWindow::on_pushButton_clicked()
+{
+    //添加空记录
+    QSqlRecord record=bookModel-&gt;record();
+
+    int row=bookModel-&gt;rowCount();
+    bookModel-&gt;insertRecord(row,record);
+}
+</code></pre><p>无论是添加还是删除，点击确定后才会去执行sql语句，即提交事务
+2.为<!-- raw HTML omitted -->删除按钮<!-- raw HTML omitted -->添加槽
+右击删除按钮-&gt;转到槽-&gt;clicked()，处理代码如下</p>
+<pre><code>void MainWindow::on_pushButton_2_clicked()
+{
+    //获取选中的模型
+     QItemSelectionModel *smodel=ui-&gt;tableView_book-&gt;selectionModel();
+     //获取模型中的索引
+     QModelIndexList list=smodel-&gt;selectedRows();
+     //删除所有选中的行
+     for(int i=0;i&lt;list.size();i++)
+     {
+         bookModel-&gt;removeRow(list.at(i).row());
+     }
+}
+</code></pre><p><img src="https://img-blog.csdnimg.cn/20190622170421608.png" alt="在这里插入图片描述">
+这样，当你在选中某行后，点击删除按钮，行的左侧会出现 <strong>!</strong> 号，这是因为我设置了编辑策略为手动提交，即向数据库添加了事务，所以为确定添加槽
+3.为<!-- raw HTML omitted -->确定<!-- raw HTML omitted -->按钮添加槽
+右键 确定-&gt;转到槽-&gt;clicked()</p>
+<pre><code>void MainWindow::on_pushButton_3_clicked()
+{
+     bookModel-&gt;submitAll();
+}
+</code></pre><p>5.为<!-- raw HTML omitted -->取消<!-- raw HTML omitted -->按钮添加槽</p>
+<pre><code>void MainWindow::on_pushButton_4_clicked()
+{
+    //取消完再提交一次
+    bookModel-&gt;revertAll();
+    bookModel-&gt;submitAll();
+}
+</code></pre><p>6.为<!-- raw HTML omitted -->查找<!-- raw HTML omitted -->按钮添加槽
+此处设置了两个查询条件
+<img src="https://img-blog.csdnimg.cn/20190622172105643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>void MainWindow::on_pushButton_6_clicked()
+{
+    QString name=ui-&gt;lineEdit_name-&gt;text();//获取用户输入
+    QString id=ui-&gt;lineEdit_id-&gt;text();
+    //组包 %1为占位符，第一个参数,%2为第二个参数
+    QString str=QString(&quot;name='%1' or id='%2' &quot;).arg(name,id);
+    //添加过滤器
+    bookModel-&gt;setFilter(str);
+    bookModel-&gt;select();
+}
+</code></pre><p>6.为<!-- raw HTML omitted -->显示所有<!-- raw HTML omitted -->按钮添加槽</p>
+<pre><code>void MainWindow::on_pushButton_5_clicked()
+{
+    bookModel-&gt;setTable(&quot;book&quot;);//重新关联表
+    bookModel-&gt;select();//再次显示所有数据
+}
+</code></pre><h2 id="3美化窗口控件">3.美化窗口控件</h2>
+<ul>
+<li>为选项卡设置图标
+修改字体大小，选择font-&gt;14
+<img src="https://img-blog.csdnimg.cn/20190622172831241.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+去互联网找需要的图标，此处使用<a href="https://www.iconfont.cn/">阿里巴巴矢量图标库</a>的图标资源
+下载好图标资源后，将它们放在一个image文件夹下,并将此image文件夹拷贝至项目根目录下
+<img src="https://img-blog.csdnimg.cn/20190622173232299.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+右键项目名 demo1-&gt;Add New-&gt;Qt-&gt;Qt Resource File
+填上文件名，先选择“添加前缀” ，只留下 <strong>/</strong> 即可，再选择添加文件
+<img src="https://img-blog.csdnimg.cn/2019062217463184.gif" alt="在这里插入图片描述">
+为选项卡添加图标：添加时需要图片的路径
+右击img.qrc-&gt;open in editor-&gt;右击图片-&gt;复制资源路径到剪切板</li>
+</ul>
+<pre><code>//添加图标
+    ui-&gt;tabWidget-&gt;setTabIcon(0,QIcon(&quot;://image/book.png&quot;));
+    ui-&gt;tabWidget-&gt;setTabIcon(1,QIcon(&quot;://image/职工.png&quot;));
+    ui-&gt;tabWidget-&gt;setTabIcon(2,QIcon(&quot;://image/客户.png&quot;));
+    ui-&gt;tabWidget-&gt;setTabIcon(3,QIcon(&quot;://image/销售订单.png&quot;));
+    ui-&gt;tabWidget-&gt;setIconSize(QSize(25,25));
+</code></pre><p><img src="https://img-blog.csdnimg.cn/2019062218043692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+接着为按钮添加图标</p>
+<pre><code>//按钮添加图标
+    ui-&gt;pushButton-&gt;setIcon(QIcon(&quot;://image/新增.png&quot;));
+//    ui-&gt;pushButton-&gt;setIconSize(QSize(25,25));//图标大小
+
+    ui-&gt;pushButton_2-&gt;setIcon(QIcon(&quot;://image/删 除 .png&quot;));
+    ui-&gt;pushButton_3-&gt;setIcon(QIcon(&quot;://image/确定.png&quot;));
+    ui-&gt;pushButton_4-&gt;setIcon(QIcon(&quot;://image/取消.png&quot;));
+    ui-&gt;pushButton_6-&gt;setIcon(QIcon(&quot;://image/查找.png&quot;));
+    ui-&gt;pushButton_5-&gt;setIcon(QIcon(&quot;://image/所有.png&quot;));
+</code></pre><p>效果
+<img src="https://img-blog.csdnimg.cn/20190622181605359.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="4使用qcharts绘制图表实现数据可视化">4.使用QCharts绘制图表实现数据可视化</h2>
+<p>官方推出QCharts后，Qt画图再也不用需要配置第三方的qcustomplot和qwt插件了，QCharts功能比两者都好，且易用安装和使用。
+使用QCharts绘图，你必须在安装Qt时勾选QCharts模块（默认不勾选），否则不能使用QCharts.
+此处以柱状图为例演示官方示例的使用：
+Qt欢迎页-&gt;示例-&gt;输入barmodelmapper
+<img src="https://img-blog.csdnimg.cn/2019062219311375.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+打开运行：<img src="https://img-blog.csdnimg.cn/20190622182712321.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+下面将它用到自己的项目中，可以看到他有两个头文件和.cpp文件，分别是：CustomTableModel和TableWidget
+<img src="https://img-blog.csdnimg.cn/20190622182856200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+从头文件可以看到它继承自QAbstractTableModel,所以我在项目中建立两个Qt Item Model文件，名字和示例一致
+<img src="https://img-blog.csdnimg.cn/20190622183424326.png" alt="在这里插入图片描述">
+1.在demo1.pro中添加charts，并点击小锤子编译此模块
+<img src="https://img-blog.csdnimg.cn/201906221845418.png" alt="在这里插入图片描述">
+2.建立文件
+（1）创建CustomTableModel：
+右击项目名demo1-&gt;Add New-&gt;Qt -&gt;Qt Item Model
+class Name:输入CustomTableModel（和示例保持一致）
+Base Class:选择QAbstractTableModel
+（2）创建TableWidget：
+右击项目名demo1-&gt;Add New-&gt;Qt -&gt;Qt Item Model
+class Name:TableWidget
+Base Class:选择QAbstractTableModel
+（3）将官方示例中customTableModel和TableWidget的头文件和.cpp文件内容直接复制到对应的建立好的2个头文件和cpp文件中</p>
+<p>3.修改main函数，看是否成功运行
+向main函数中添加头文件“tablewidget.h”，并生成一个实例，运行该实例：</p>
+<pre><code>#include &quot;mainwindow.h&quot;
+#include &lt;QApplication&gt;
+#include&quot;tablewidget.h&quot;
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+//    MainWindow w;
+//    w.show();
+
+    TableWidget t;
+    t.show();
+
+    return a.exec();
+}
+
+</code></pre><p>效果如下：
+<img src="https://img-blog.csdnimg.cn/20190622190512159.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+在我们的项目中成功运行了该官方实例，下面让这个图显示我们数据库中的数据
+以显示数据库表sale中的销售信息为例，统计sale表中2018年和2019年每个月书籍的总销售量。
+因此，我修改了CustomTableModel.cpp和TableWidget.cpp的部分代码：
+CustomTableModel.cpp:</p>
+<pre><code>#include &quot;customtablemodel.h&quot;
+#include &lt;QtCore/QVector&gt;
+#include &lt;QtCore/QTime&gt;
+#include &lt;QtCore/QRect&gt;
+#include &lt;QtCore/QRandomGenerator&gt;
+#include &lt;QtGui/QColor&gt;
+#include&lt;QDebug&gt;
+#include&lt;QMessageBox&gt;
+#include&lt;QSqlError&gt;
+#include&lt;QSqlTableModel&gt;
+#include&lt;QSqlRecord&gt;
+#include&lt;QSqlDatabase&gt;
+#include&lt;QSqlQuery&gt;
+
+
+CustomTableModel::CustomTableModel(QObject *parent) :
+    QAbstractTableModel(parent)
+{
+    //连接数据库
+    QSqlDatabase db= QSqlDatabase::addDatabase(&quot;QMYSQL&quot;);
+    //设置数据库
+    db.setHostName(&quot;127.0.0.1&quot;);
+    db.setPort(3306);
+    db.setDatabaseName(&quot;book&quot;);
+    db.setUserName(&quot;root&quot;);
+    db.setPassword(&quot;123456&quot;);
+
+    //打开时数据库
+    if(!db.open() )
+    {
+        qDebug()&lt;&lt;&quot;连接失败&quot;;
+
+        return;
+    }
+    else
+    {
+        qDebug()&lt;&lt;&quot;连接成功&quot;;
+    }
+
+    QSqlQuery query;
+
+
+    //////
+    m_columnCount = 2;
+    m_rowCount = 12;
+    QString a[]={&quot;2018&quot;,&quot;2019&quot;};
+    // m_data
+    for (int i = 0; i &lt; m_rowCount; i++)
+    {
+    //类型为qreal的一维向量
+        QVector&lt;qreal&gt;* dataVec = new QVector&lt;qreal&gt;(m_columnCount);
+        for (int k = 0; k &lt; dataVec-&gt;size(); k++)
+        {
+//            if (k % 2 == 0)
+//                dataVec-&gt;replace(k, i * 50 + QRandomGenerator::global()-&gt;bounded(20));
+//            else
+//                dataVec-&gt;replace(k, QRandomGenerator::global()-&gt;bounded(100));
+ //用YEAR、Month这两个数据库中内置函数，分别统计每月的书籍销售量
+            QString sql=QString(&quot;select SUM(count) from sale where YEAR(saledate)='%1' and&quot;
+                        &quot; MONTH(saledate)='%2' &quot;).arg(a[k],QString::number(i+1));
+//            qDebug()&lt;&lt;sql&lt;&lt;&quot;\n&quot;;
+            query.exec(sql);
+            while(query.next())
+            {
+               int count=query.value(0).toInt();
+               //销售量插入到dataVec
+                dataVec-&gt;replace(k,count);
+            }
+
+         }
+          //向m_data追加dataVec
+        m_data.append(dataVec);
+
+    }
+}
+
+CustomTableModel::~CustomTableModel()
+{
+    qDeleteAll(m_data);
+}
+
+int CustomTableModel::rowCount(const QModelIndex &amp;parent) const
+{
+    Q_UNUSED(parent)
+    return m_data.count();
+}
+
+int CustomTableModel::columnCount(const QModelIndex &amp;parent) const
+{
+    Q_UNUSED(parent)
+    return m_columnCount;
+}
+
+QVariant CustomTableModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (role != Qt::DisplayRole)
+        return QVariant();
+
+    if (orientation == Qt::Horizontal)
+        return QString(&quot;201%1&quot;).arg(section+8);
+    else
+        return QString(&quot;%1&quot;).arg(section + 1);
+}
+
+QVariant CustomTableModel::data(const QModelIndex &amp;index, int role) const
+{
+    if (role == Qt::DisplayRole) {
+        return m_data[index.row()]-&gt;at(index.column());
+    } else if (role == Qt::EditRole) {
+        return m_data[index.row()]-&gt;at(index.column());
+    } else if (role == Qt::BackgroundRole) {
+        for (const QRect &amp;rect : m_mapping) {
+            if (rect.contains(index.column(), index.row()))
+                return QColor(m_mapping.key(rect));
+        }
+
+        // cell not mapped return white color
+        return QColor(Qt::white);
+    }
+    return QVariant();
+}
+
+bool CustomTableModel::setData(const QModelIndex &amp;index, const QVariant &amp;value, int role)
+{
+    if (index.isValid() &amp;&amp; role == Qt::EditRole) {
+        m_data[index.row()]-&gt;replace(index.column(), value.toDouble());
+        emit dataChanged(index, index);
+        return true;
+    }
+    return false;
+}
+
+Qt::ItemFlags CustomTableModel::flags(const QModelIndex &amp;index) const
+{
+    return QAbstractItemModel::flags(index) | Qt::ItemIsEditable;
+}
+
+void CustomTableModel::addMapping(QString color, QRect area)
+{
+    m_mapping.insertMulti(color, area);
+}
+
+
+</code></pre><p>TableWidget.cpp代码修改如下：</p>
+<pre><code>#include &quot;tablewidget.h&quot;
+#include &lt;QtWidgets/QGridLayout&gt;
+#include &lt;QtWidgets/QTableView&gt;
+#include &lt;QtCharts/QChart&gt;
+#include &lt;QtCharts/QChartView&gt;
+#include &lt;QtCharts/QLineSeries&gt;
+#include &lt;QtCharts/QVXYModelMapper&gt;
+#include &lt;QtCharts/QBarSeries&gt;
+#include &lt;QtCharts/QBarSet&gt;
+#include &lt;QtCharts/QVBarModelMapper&gt;
+#include &lt;QtWidgets/QHeaderView&gt;
+#include &lt;QtCharts/QBarCategoryAxis&gt;
+#include &lt;QtCharts/QValueAxis&gt;
+#include&lt;QDebug&gt;
+
+QT_CHARTS_USE_NAMESPACE
+
+TableWidget::TableWidget(QWidget *parent)
+    : QWidget(parent)
+{
+    qDebug()&lt;&lt;&quot;窗口已生成&quot;;
+    // create simple model for storing data
+    // user's table data model
+    //! [1]
+    m_model = new CustomTableModel;
+    //! [1]
+
+    //! [2]
+    // create table view and add model to it
+    QTableView *tableView = new QTableView;
+    tableView-&gt;setModel(m_model);
+    tableView-&gt;setMinimumWidth(300);
+    tableView-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::Stretch);
+    tableView-&gt;verticalHeader()-&gt;setSectionResizeMode(QHeaderView::Stretch);
+    m_model-&gt;setParent(tableView);
+    //! [2]
+
+    //! [3]
+    QChart *chart = new QChart;
+    chart-&gt;setAnimationOptions(QChart::AllAnimations);
+    //! [3]
+
+    // series 1
+    //! [4]
+    QBarSeries *series = new QBarSeries;
+
+    int first = 0;
+    int count = 12;
+    QVBarModelMapper *mapper = new QVBarModelMapper(this);
+    mapper-&gt;setFirstBarSetColumn(0);
+    mapper-&gt;setLastBarSetColumn(1);
+    mapper-&gt;setFirstRow(first);
+    mapper-&gt;setRowCount(count);
+    mapper-&gt;setSeries(series);
+    mapper-&gt;setModel(m_model);
+    chart-&gt;addSeries(series);
+    //! [4]
+
+    //! [5]
+    // for storing color hex from the series
+    QString seriesColorHex = &quot;#000000&quot;;
+
+    // get the color of the series and use it for showing the mapped area
+    QList&lt;QBarSet *&gt; barsets = series-&gt;barSets();
+    for (int i = 0; i &lt; barsets.count(); i++) {
+        seriesColorHex = &quot;#&quot; + QString::number(barsets.at(i)-&gt;brush().color().rgb(), 16).right(6).toUpper();
+        m_model-&gt;addMapping(seriesColorHex, QRect(1 + i, first, 1, barsets.at(i)-&gt;count()));
+    }
+    //! [5]
+
+    //! [6]
+    QStringList categories;
+    //修改坐标字段
+    categories &lt;&lt; &quot;1月&quot; &lt;&lt; &quot;2月&quot; &lt;&lt; &quot;3月&quot; &lt;&lt; &quot;4月&quot; &lt;&lt;&quot;5月&quot;&lt;&lt;&quot;6月&quot;&lt;&lt;&quot;7月&quot;
+               &lt;&lt;&quot;8月&quot;&lt;&lt;&quot;9月&quot;&lt;&lt;&quot;10月&quot;&lt;&lt;&quot;11月&quot;&lt;&lt;&quot;12月&quot;;
+    QBarCategoryAxis *axisX = new QBarCategoryAxis();
+    axisX-&gt;append(categories);
+    chart-&gt;addAxis(axisX, Qt::AlignBottom);
+    series-&gt;attachAxis(axisX);
+    QValueAxis *axisY = new QValueAxis();
+    chart-&gt;addAxis(axisY, Qt::AlignLeft);
+    series-&gt;attachAxis(axisY);
+    //! [6]
+
+    //! [7]
+    QChartView *chartView = new QChartView(chart);
+    chartView-&gt;setRenderHint(QPainter::Antialiasing);
+    chartView-&gt;setMinimumSize(800, 600);
+    //! [7]
+
+    //! [8]
+    // create main layout
+    QGridLayout *mainLayout = new QGridLayout;
+    mainLayout-&gt;addWidget(tableView, 1, 0);
+    mainLayout-&gt;addWidget(chartView, 1, 1);
+    mainLayout-&gt;setColumnStretch(1, 1);
+    mainLayout-&gt;setColumnStretch(0, 0);
+    setLayout(mainLayout);
+    //! [8]
+}
+
+</code></pre><p>运行后的柱状图变成了下面这样，可以看到，数据是从数据库读出（在sale表中插入测试数据即可测试）
+<img src="https://img-blog.csdnimg.cn/20190622191839389.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+demo源码已上传至github:<a href="https://github.com/HelloZzy23/bookManageClient">点我去下载</a><a href="https://github.com/HelloZzy23/bookManageClient">https://github.com/HelloZzy23/bookManageClient</a></p>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <a href="https://trumpzhang.github.io"><img src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Contact Me</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark" href="tel:***"><i
+                class="ti-mobile mr-3 text-primary"></i>***</a></li>
+          <li class="mb-3"><i class="ti-location-pin mr-3 text-primary"></i>甘肃兰州</li>
+          <li class="mb-3"><a class="text-dark" href="mailto:2567269204@qq.com"><i
+                class="ti-email mr-3 text-primary"></i>2567269204@qq.com</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/trumpzhang/">github</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Categories</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/centos">Centos</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/django">Django</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/hadoop">Hadoop</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/qt">Qt</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/scala">Scala</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-boot">Spring boot</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-cloud">Spring cloud</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/ssm">Ssm</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/vue">Vue</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/about">About</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/blog">Blog</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | @2020 <a href="https://trumpzhang.github.io">张志宇</a> All Rights Reserved |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var indexURL = "https://trumpzhang.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://trumpzhang.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/mark.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://trumpzhang.github.io/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script></body>
+</html>

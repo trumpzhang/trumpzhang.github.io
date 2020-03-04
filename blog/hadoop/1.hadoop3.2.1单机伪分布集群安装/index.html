@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+  <meta charset="utf-8">
+  <title>张志宇的博客</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A coder">
+  <meta name="author" content="张志宇">
+  <meta name="generator" content="Hugo 0.65.1" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom">
+      <a class="navbar-brand mobile-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+          src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/trumpzhang/"><i class="ti-github"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+            src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io"> Home </a>
+          </li>
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/blog">Blog</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/contact">Contact</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://trumpzhang.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        
+        <a href="/categories/hadoop"
+          class="text-primary">Hadoop</a>
+        
+        <h2>1.Hadoop3.2单机伪分布集群安装</h2>
+        <div class="mb-3 post-meta">
+          <span>By 张志宇</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>04 March 2020</span>
+          
+        </div>
+        
+        <img src="https://trumpzhang.github.io/images/hadoop/hadoop.jpg" class="img-fluid w-100 mb-4" alt="1.Hadoop3.2单机伪分布集群安装">
+        
+        <div class="content mb-5">
+          <h2 id="hadoop321-单机伪分布集群安装">Hadoop3.2.1 单机伪分布集群安装</h2>
+<h3 id="一准备环境">一.准备环境：</h3>
+<p>1台 linux 虚拟机(Centos7.x 64 位)</p>
+<ul>
+<li>ip 为：192.168.2.100</li>
+<li>hostname 为：hadoop100</li>
+</ul>
+<p>虚拟机基本环境配置：
+集群用到的所有机器都参考此流程进行配置。</p>
+<h5 id="1主机名设置">1.主机名设置</h5>
+<p>建议把此机器的主机名设置为 hadoop100
+主机名的设置可以分为临时设置和永久设置。
+临时设置可以立刻生效，但是不能永久保存，虚拟机重启后就会失效，所以建议永久设置。</p>
+<p>临时设置主机名</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 ~<span style="color:#f92672">]</span><span style="color:#75715e"># hostname hadoop100</span>
+</code></pre></div><p>永久设置主机名</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 ~<span style="color:#f92672">]</span><span style="color:#75715e"># vi /etc/sysconfig/network</span>
+NETWORKING<span style="color:#f92672">=</span>yes
+HOSTNAME<span style="color:#f92672">=</span>hadoop100
+</code></pre></div><h5 id="2hosts-文件配置">2.hosts 文件配置</h5>
+<p>修改/etc/hosts 文件，把 ip 和 hostname 的映射关系配置进去，此处的 ip 需要和你设置的虚拟机实际 ip 相同</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 ~<span style="color:#f92672">]</span><span style="color:#75715e"># vi /etc/hosts</span>
+192.168.2.100 hadoop100
+</code></pre></div><h5 id="3关闭防火墙">3.关闭防火墙</h5>
+<p>防火墙的关闭也分为临时关闭和永久关闭。
+临时关闭可以立刻生效，但是不能永久保存，虚拟机重启后就会失效，所以建议永久设置。</p>
+<ul>
+<li>临时关闭防火墙</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 ~<span style="color:#f92672">]</span><span style="color:#75715e"># service iptables stop</span>
+iptables: Setting chains to policy ACCEPT: filter <span style="color:#f92672">[</span> OK <span style="color:#f92672">]</span>
+iptables: Flushing firewall rules: <span style="color:#f92672">[</span> OK <span style="color:#f92672">]</span>
+iptables: Unloading modules: <span style="color:#f92672">[</span> OK <span style="color:#f92672">]</span>
+</code></pre></div><ul>
+<li>永久关闭防火墙</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 soft<span style="color:#f92672">]</span><span style="color:#75715e"># chkconfig iptables off</span>
+</code></pre></div><ul>
+<li>配置ssh 免密码登陆
+配置 ssh 免密码登陆，在这里先实现免密码登陆本机
+生成公钥，注意：执行这个命令以后，需要连续按 4 次回车键回到 linux 命令行才表示这个操作执行结束，在按回车的时候不需要输入任何内容。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 ~<span style="color:#f92672">]</span><span style="color:#75715e"># ssh-keygen -t rsa</span>
+Generating public/private rsa key pair. Enter file in which to save the key <span style="color:#f92672">(</span>/root/.ssh/id_rsa<span style="color:#f92672">)</span>:
+Enter passphrase <span style="color:#f92672">(</span>empty <span style="color:#66d9ef">for</span> no passphrase<span style="color:#f92672">)</span>:
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa. Your public key has been saved in /root/.ssh/id_rsa.pub. The key fingerprint is:
+20:d0:89:24:29:1e:c8:50:b3:fb:e0:57:76:94:0c:ea root@hadoop100
+The key<span style="color:#960050;background-color:#1e0010">&#39;</span>s randomart image is:
++--<span style="color:#f92672">[</span> RSA 2048<span style="color:#f92672">]</span>----+
+|*+<span style="color:#f92672">=</span>o .. |
+|++.+o. o . |
+|o o o . + |
+| . o . o |
+| o E o S |
+| . o o . |
+| . o |
+| . |
+| |
++-----------------+
+</code></pre></div><ul>
+<li>向本机复制公钥</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 ~<span style="color:#f92672">]</span><span style="color:#75715e"># cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span>
+</code></pre></div><ul>
+<li>执行 ssh 命令验证免密码登陆是否配置成功，第一次验证的时候会提示输入 yes 或 no，直接输入 yes 即可，如果输入了 yes 之后按回车可以进入就表示免密码登陆配置成功。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 ~<span style="color:#f92672">]</span><span style="color:#75715e"># ssh hadoop100</span>
+The authenticity of host <span style="color:#e6db74">&#39;hadoop100(192.168.111.100)&#39;</span> can<span style="color:#e6db74">&#39;t be established. RSA key fingerprint is 64:87:b9:da:46:c1:85:54:49:6d:65:4a:0f:49:8f:58. Are you sure you want to continue connecting (yes/no)? yes
+</span><span style="color:#e6db74">Warning: Permanently added &#39;</span>hadoop100<span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#f92672">(</span>RSA<span style="color:#f92672">)</span> to the list of known hosts. Last login: Thu Jul <span style="color:#ae81ff">25</span> 09:11:46 <span style="color:#ae81ff">2019</span> from hadoop100
+</code></pre></div><h5 id="4jdk-安装">4.jdk 安装</h5>
+<p>注意：在这里建议安装 jdk1.8 版本，jdk-8u181-linux-x64.tar.gz
+上传 jdk 安装包到 linux 的/data/soft 目录，如果此目录不存在则提前创建</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 ~<span style="color:#f92672">]</span><span style="color:#75715e"># mkdir -p /data/soft/</span>
+<span style="color:#f92672">[</span>root@hadoop100 ~<span style="color:#f92672">]</span><span style="color:#75715e"># cd /data/soft/</span>
+</code></pre></div><p>解压 jdk</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 soft<span style="color:#f92672">]</span><span style="color:#75715e"># tar -zxvf jdk-8u181-linux-x64.tar.gz</span>
+</code></pre></div><p>重命名</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 soft<span style="color:#f92672">]</span><span style="color:#75715e"># mv jdk1.8.0_181/ jdk1.8</span>
+</code></pre></div><p><strong>配置 java 的环境变量</strong>，修改/etc/profile 文件，在文件末尾增加下面三行配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 soft<span style="color:#f92672">]</span><span style="color:#75715e"># vi /etc/profile</span>
+export JAVA_HOME<span style="color:#f92672">=</span>/data/soft/jdk1.8
+export HADOOP_HOME<span style="color:#f92672">=</span>/data/soft/hadoop-3.2.0
+export PATH<span style="color:#f92672">=</span>.:$JAVA_HOME/bin:$HADOOP_HOME/bin:$PATH
+</code></pre></div><p>验证环境变量配置是否成功，执行以下命令能看到输入信息即说明配置成功</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 soft<span style="color:#f92672">]</span><span style="color:#75715e"># java -version</span>
+java version <span style="color:#e6db74">&#34;1.8.0_181&#34;</span>
+Java<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> SE Runtime Environment <span style="color:#f92672">(</span>build 1.8.0_181-b13<span style="color:#f92672">)</span>
+Java HotSpot<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> 64-Bit Server VM <span style="color:#f92672">(</span>build 25.181-b13, mixed mode<span style="color:#f92672">)</span>
+</code></pre></div><h3 id="二hadoop-伪分布集群安装">二.Hadoop 伪分布集群安装：</h3>
+<p>下面开始在 1 台 linux 虚拟机上开始安装 Hadoop3 伪分布环境
+在这里我们使用 hadoop3.2.1 版本</p>
+<h5 id="1把-hadoop-321targz-安装包上传到-linux-机器的datasoft-目录下">1.把 hadoop-3.2.1.tar.gz 安装包上传到 linux 机器的/data/soft 目录下</h5>
+<h5 id="2解压-hadoop-安装包">2.解压 hadoop 安装包</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">[root@hadoop100 ~]<span style="color:#75715e"># cd /data/soft</span>
+[root@hadoop100 soft]<span style="color:#75715e"># tar -zxvf hadoop-3.2.1.tar.gz</span>
+</code></pre></div><h5 id="3修改-hadoop-相关配置文件">3.修改 hadoop 相关配置文件</h5>
+<p>进入配置文件所在目录
+[root@hadoop100 soft]# cd hadoop-3.2.1/etc/hadoop/</p>
+<ul>
+<li>首先修改 hadoop-env.sh 文件，增加环境变量信息
+[root@hadoop100 hadoop]# vi hadoop-env.sh</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">export JAVA_HOME=/data/soft/jdk1.8
+export HADOOP_LOG_DIR=/data/hadoop_repo/logs/hadoop
+</code></pre></div><ul>
+<li>修改 core-site.xml 文件，注意 fs.defaultFS 属性中的主机名需要和你配置的主机名保持一致
+[root@hadoop100 hadoop]# vi core-site.xml</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">&lt;configuration&gt;
+&lt;property&gt;
+&lt;name&gt;fs.defaultFS&lt;/name&gt;
+&lt;value&gt;hdfs<span style="color:#960050;background-color:#1e0010">:</span>//hadoop100<span style="color:#960050;background-color:#1e0010">:</span>9000&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+&lt;value&gt;/data/hadoop_repo&lt;/value&gt;
+&lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre></div><ul>
+<li>修改 hdfs-site.xml 文件，把 hdfs 中文件副本的数量设置为 1，因为现在伪分布集群只有一个节点
+[root@hadoop100 hadoop]# vi hdfs-site.xml</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">&lt;configuration&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.replication&lt;/name&gt;
+&lt;value&gt;1&lt;/value&gt;
+&lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre></div><ul>
+<li>修改 mapred-site.xml，设置 mapreduce 使用的资源调度框架为yarn</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 hadoop<span style="color:#f92672">]</span><span style="color:#75715e"># vi mapred-site.xml</span>
+&lt;configuration&gt;
+ &lt;property&gt;
+  &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+  &lt;value&gt;yarn&lt;/value&gt;
+ &lt;/property&gt;
+ &lt;property&gt;
+  &lt;name&gt;yarn.app.mapreduce.am.env&lt;/name&gt;
+  &lt;value&gt;HADOOP_MAPRED_HOME<span style="color:#f92672">=</span>/data/soft/hadoop-3.2.1&lt;/value&gt;
+ &lt;/property&gt;
+ &lt;property&gt;
+  &lt;name&gt;mapreduce.map.env&lt;/name&gt;
+  &lt;value&gt;HADOOP_MAPRED_HOME<span style="color:#f92672">=</span>/data/soft/hadoop-3.2.1&lt;/value&gt;
+ &lt;/property&gt;
+ &lt;property&gt;
+  &lt;name&gt;mapreduce.reduce.env&lt;/name&gt;
+  &lt;value&gt;HADOOP_MAPRED_HOME<span style="color:#f92672">=</span>/data/soft/hadoop-3.2.1&lt;/value&gt;
+ &lt;/property&gt;
+&lt;/configuration&gt;
+
+</code></pre></div><ul>
+<li>修改 yarn-site.xml，设置 yarn 上支持运行的服务和环境变量白名单</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 hadoop<span style="color:#f92672">]</span><span style="color:#75715e"># vi yarn-site.xml</span>
+&lt;configuration&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+&lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.nodemanager.env-whitelist&lt;/name&gt;
+&lt;value&gt;JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CL
+ASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME&lt;/value&gt;
+&lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre></div><h5 id="4格式化-namenode">4.格式化 namenode</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 hadoop<span style="color:#f92672">]</span><span style="color:#75715e"># cd /data/soft/hadoop-3.2.1</span>
+<span style="color:#f92672">[</span>root@hadoop100 hadoop-3.2.1<span style="color:#f92672">]</span><span style="color:#75715e"># bin/hdfs namenode -format</span>
+</code></pre></div><p>如果在后面的日志信息中能看到这一行，则说明 namenode 格式化成功。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">common.Storage: Storage directory /data/hadoop_repo/dfs/name has been successfully
+formatted. 
+</code></pre></div><h5 id="5修改脚本">5.修改脚本</h5>
+<ul>
+<li>修改start-dfs.sh，stop-dfs.sh 这两个脚本文件，在文件前面增加如下内容</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 hadoop<span style="color:#f92672">]</span><span style="color:#75715e"># cd /data/soft/hadoop-3.2.1/sbin</span>
+<span style="color:#f92672">[</span>root@hadoop100 sbin<span style="color:#f92672">]</span><span style="color:#75715e"># vi start-dfs.sh</span>
+HDFS_DATANODE_USER<span style="color:#f92672">=</span>root
+HDFS_DATANODE_SECURE_USER<span style="color:#f92672">=</span>hdfs
+HDFS_NAMENODE_USER<span style="color:#f92672">=</span>root
+HDFS_SECONDARYNAMENODE_USER<span style="color:#f92672">=</span>root
+
+<span style="color:#f92672">[</span>root@hadoop100 sbin<span style="color:#f92672">]</span><span style="color:#75715e"># vi stop-dfs.sh</span>
+HDFS_DATANODE_USER<span style="color:#f92672">=</span>root
+HDFS_DATANODE_SECURE_USER<span style="color:#f92672">=</span>hdfs
+HDFS_NAMENODE_USER<span style="color:#f92672">=</span>root
+HDFS_SECONDARYNAMENODE_USER<span style="color:#f92672">=</span>root
+</code></pre></div><ul>
+<li>修改 start-yarn.sh，stop-yarn.sh 这两个脚本文件，在文件前面增加如下内容</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 sbin<span style="color:#f92672">]</span><span style="color:#75715e"># vi start-yarn.sh</span>
+YARN_RESOURCEMANAGER_USER<span style="color:#f92672">=</span>root
+HADOOP_SECURE_DN_USER<span style="color:#f92672">=</span>yarn
+YARN_NODEMANAGER_USER<span style="color:#f92672">=</span>root
+
+<span style="color:#f92672">[</span>root@hadoop100 sbin<span style="color:#f92672">]</span><span style="color:#75715e"># vi stop-yarn.sh</span>
+YARN_RESOURCEMANAGER_USER<span style="color:#f92672">=</span>root
+HADOOP_SECURE_DN_USER<span style="color:#f92672">=</span>yarn
+YARN_NODEMANAGER_USER<span style="color:#f92672">=</span>root
+</code></pre></div><h5 id="6再启动hadoop-集群">6.再启动hadoop 集群</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 hadoop-3.2.1<span style="color:#f92672">]</span><span style="color:#75715e"># sbin/start-all.sh</span>
+Starting namenodes on <span style="color:#f92672">[</span>hadoop100<span style="color:#f92672">]</span>
+Starting datanodes
+Starting secondary namenodes <span style="color:#f92672">[</span>hadoop100<span style="color:#f92672">]</span>
+Starting resourcemanager
+Starting nodemanagers
+</code></pre></div><p>验证集群进程信息
+执行 jps 命令可以查看集群的进程信息，有以下进程才说明集群是正常启动的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>root@hadoop100 sbin<span style="color:#f92672">]</span><span style="color:#75715e"># jps</span>
+<span style="color:#ae81ff">2882</span> ResourceManager
+<span style="color:#ae81ff">2420</span> DataNode
+<span style="color:#ae81ff">3365</span> Jps
+<span style="color:#ae81ff">2619</span> SecondaryNameNode
+<span style="color:#ae81ff">2315</span> NameNode
+<span style="color:#ae81ff">2988</span> NodeManager
+</code></pre></div><p>还可以通过 webui 界面来验证集群服务是否正常</p>
+<blockquote>
+<p>hdfs webui 界面：http://192.168.2.100:9870
+yarn webui界面：http://192.168.2.100:8088</p>
+</blockquote>
+<h5 id="7停止集群">7.停止集群</h5>
+<p>如果修改了集群的配置文件或者是其它原因要停止集群，可以使用下面命令。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">[root@hadoop100 sbin]<span style="color:#75715e"># ./stop-all.sh</span>
+</code></pre></div>
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <a href="https://trumpzhang.github.io"><img src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Contact Me</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark" href="tel:***"><i
+                class="ti-mobile mr-3 text-primary"></i>***</a></li>
+          <li class="mb-3"><i class="ti-location-pin mr-3 text-primary"></i>甘肃兰州</li>
+          <li class="mb-3"><a class="text-dark" href="mailto:2567269204@qq.com"><i
+                class="ti-email mr-3 text-primary"></i>2567269204@qq.com</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/trumpzhang/">github</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Categories</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/centos">Centos</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/django">Django</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/hadoop">Hadoop</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/qt">Qt</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/scala">Scala</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-boot">Spring boot</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-cloud">Spring cloud</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/ssm">Ssm</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/vue">Vue</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/about">About</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/blog">Blog</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | @2020 <a href="https://trumpzhang.github.io">张志宇</a> All Rights Reserved |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var indexURL = "https://trumpzhang.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://trumpzhang.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/mark.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://trumpzhang.github.io/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script></body>
+</html>

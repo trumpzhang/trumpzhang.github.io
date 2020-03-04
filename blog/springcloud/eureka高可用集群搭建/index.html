@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+  <meta charset="utf-8">
+  <title>张志宇的博客</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A coder">
+  <meta name="author" content="张志宇">
+  <meta name="generator" content="Hugo 0.65.1" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom">
+      <a class="navbar-brand mobile-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+          src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/trumpzhang/"><i class="ti-github"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+            src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io"> Home </a>
+          </li>
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/blog">Blog</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/contact">Contact</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://trumpzhang.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        
+        <a href="/categories/spring-cloud"
+          class="text-primary">Spring cloud</a>
+        
+        <h2>2.1Eureka高可用集群搭建</h2>
+        <div class="mb-3 post-meta">
+          <span>By 张志宇</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>04 March 2020</span>
+          
+        </div>
+        
+        <img src="https://trumpzhang.github.io/images/springCloud/springCloud.jpg" class="img-fluid w-100 mb-4" alt="2.1Eureka高可用集群搭建">
+        
+        <div class="content mb-5">
+          <h3 id="eureka高可用集群搭建">Eureka高可用集群搭建</h3>
+<h4 id="1为什么需要集群">1.为什么需要集群</h4>
+<p>如果只有一个注册中心服务器，会存在单点故障所以要集群部署。这样即使集群中某个节点出现宕机等故障，系统仍可以从其他节点拉取微服务地址，从而正常运行。
+<img src="https://img-blog.csdnimg.cn/20200223205114522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="2集群搭建">2.集群搭建</h4>
+<p>生产环境把Eureka部署多个服务器就ok了,开发阶段可以使用同一台主机不同端口号来模拟集群：</p>
+<h5 id="21-准备2个eurekaserver工程需要相互注册">2.1 准备2个EurekaServer工程，需要相互注册</h5>
+<p>server1: 9000
+server2: 9001</p>
+<ul>
+<li>EurekaServer1
+<strong>application.yml</strong></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">server</span>:
+  <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">9000</span>
+<span style="color:#66d9ef">spring</span>:
+  <span style="color:#66d9ef">application</span>:
+    <span style="color:#66d9ef">name</span>: eureka-server
+<span style="color:#66d9ef">eureka</span>:
+  <span style="color:#66d9ef">client</span>:
+    <span style="color:#66d9ef">service-url</span>:
+      <span style="color:#75715e">#注册到9001</span>
+      <span style="color:#66d9ef">defaultZone</span>: http://localhost:<span style="color:#ae81ff">9001</span>/eureka
+</code></pre></div><ul>
+<li>EurekaServer2
+<strong>application.yml</strong></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">server</span>:
+  <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">9001</span>
+<span style="color:#66d9ef">spring</span>:
+  <span style="color:#66d9ef">application</span>:
+  <span style="color:#75715e">#name值一致</span>
+    <span style="color:#66d9ef">name</span>: eureka-server
+<span style="color:#66d9ef">eureka</span>:
+  <span style="color:#66d9ef">client</span>:
+    <span style="color:#66d9ef">service-url</span>:
+      <span style="color:#75715e">#注册到9000</span>
+      <span style="color:#66d9ef">defaultZone</span>: http://localhost:<span style="color:#ae81ff">9000</span>/eureka
+</code></pre></div><p>访问相应的url地址
+<img src="https://img-blog.csdnimg.cn/20200223212320338.png" alt="在这里插入图片描述"></p>
+<h5 id="22-将微服务注册到eurekaserver集群">2.2 将微服务注册到EurekaServer集群</h5>
+<p>由于EurekaServer之间信息是同步的，所以只要微服务注册到一个节点上，那么集群中的每个节点都拥有该微服务的信息。
+但若微服务注册的1个节点发生故障，则注册失败，为了保证高可用，需要将每个微服务注册到多个节点上。
+(1)service-provider
+<strong>application.yml</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">server</span>:
+  <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">8081</span>
+<span style="color:#66d9ef">spring</span>:
+  <span style="color:#66d9ef">application</span>:
+    <span style="color:#66d9ef">name</span>: service-consumer
+<span style="color:#66d9ef">eureka</span>:
+  <span style="color:#66d9ef">client</span>:
+    <span style="color:#66d9ef">service-url</span>:
+      <span style="color:#66d9ef">defaultZone</span>: http://localhost:<span style="color:#ae81ff">9000</span>/eureka,http://localhost:<span style="color:#ae81ff">9001</span>/eureka <span style="color:#75715e">#多个地址用,号隔开</span>
+</code></pre></div><p>其他服务配置方法相同。</p>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <a href="https://trumpzhang.github.io"><img src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Contact Me</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark" href="tel:***"><i
+                class="ti-mobile mr-3 text-primary"></i>***</a></li>
+          <li class="mb-3"><i class="ti-location-pin mr-3 text-primary"></i>甘肃兰州</li>
+          <li class="mb-3"><a class="text-dark" href="mailto:2567269204@qq.com"><i
+                class="ti-email mr-3 text-primary"></i>2567269204@qq.com</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/trumpzhang/">github</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Categories</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/centos">Centos</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/django">Django</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/hadoop">Hadoop</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/qt">Qt</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/scala">Scala</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-boot">Spring boot</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-cloud">Spring cloud</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/ssm">Ssm</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/vue">Vue</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/about">About</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/blog">Blog</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | @2020 <a href="https://trumpzhang.github.io">张志宇</a> All Rights Reserved |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var indexURL = "https://trumpzhang.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://trumpzhang.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/mark.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://trumpzhang.github.io/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script></body>
+</html>

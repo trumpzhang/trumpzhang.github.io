@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+  <meta charset="utf-8">
+  <title>张志宇的博客</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A coder">
+  <meta name="author" content="张志宇">
+  <meta name="generator" content="Hugo 0.65.1" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom">
+      <a class="navbar-brand mobile-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+          src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/trumpzhang/"><i class="ti-github"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+            src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io"> Home </a>
+          </li>
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/blog">Blog</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/contact">Contact</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://trumpzhang.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        
+        <a href="/categories/ssm"
+          class="text-primary">S s m</a>
+        
+        <h2>Mybatis</h2>
+        <div class="mb-3 post-meta">
+          <span>By 张志宇</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>04 March 2020</span>
+          
+        </div>
+        
+        <img src="https://trumpzhang.github.io/images/ssm/ssm.jpg" class="img-fluid w-100 mb-4" alt="Mybatis">
+        
+        <div class="content mb-5">
+          <p>@<a href="%E4%BA%8C.SSM%E6%A1%86%E6%9E%B6%E4%B9%8BMyBatis%E6%A1%86%E6%9E%B6">TOC</a></p>
+<h1 id="二mybatis框架">二.MyBatis框架</h1>
+<h2 id="1mybatis及orm简介">1.MyBatis及ORM简介</h2>
+<ul>
+<li>MyBatis是一个优秀的数据持久层框架，在实体类和SQL语句之间建立映射关系，是一种半自动化的ORM实现。其封装性要低于Hibernate，性能优越，并且小巧、简单易学，应用也越来越广泛。
+它内部封装了通过JDBC访问数据库的操作，支持普通的SQL查询、存储过程和高级映射，几乎消除了所有的JDBC代码和参数的手工设置以及结果集的检索</li>
+<li>关于ORM(Object Relational Mapping )，你应该知道的:
+（1）对象/关系映射是一种数据持久化技术。它在对象模型和关系型数据库之间建立起对应关系，并且提供了一种机制，通过JavaBean对象去操作数据库表中的数据。
+（2）在开发中，程序员使用面向对象的技术操作数据，而当存储数据时，使用的却是关系数据库，这样造成了很多不便。ORM在对象模型和关系数据库的表之间建立了一座桥梁，有了它，程序员就不需要再使用SQL语句操作数据库中的表，使用API直接操作JavaBean对象就可以实现数据的查询、存储、更改、删除等操作。
+（3）MyBatis通过简单的XML或者注解进行配置和原始映射，在实体类和SQL语句之间建立映射关系，是一种半自动化的ORM实现。</li>
+<li>MyBatis是ORM的解决方案，下面通过简单的实例体验MyBatis</li>
+</ul>
+<h2 id="2搭建mybatis环境">2.搭建MyBatis环境</h2>
+<ol>
+<li>在项目中配置jdbc驱动包
+点击Project Structure按钮，选择左侧modules,选择Dependencies选项卡，点击“+”，选择“Jars or directories”，找到驱动jar包，Apply之后点击Ok</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20190624144818321.gif" alt="在这里插入图片描述"></p>
+<ol start="2">
+<li>使用navicat建立两张表user(name,password)和book(id,name)，并插入几条记录作为测试</li>
+</ol>
+<ul>
+<li>user表
+<img src="https://img-blog.csdnimg.cn/20190624145403897.png" alt="在这里插入图片描述"></li>
+<li>book表
+<img src="https://img-blog.csdnimg.cn/20190624145438847.png" alt="在这里插入图片描述"></li>
+</ul>
+<ol start="3">
+<li>建立和表对应的pojo类
+建立pojo（plain old java object）包，右击com包 -&gt;new -&gt;Package-&gt;pojo
+在pojo下建立两个Java类,即User类、Book类</li>
+</ol>
+<ul>
+<li>User类</li>
+</ul>
+<pre><code>package com.pojo;
+
+public class User {
+    //    类型和数据库保持一致，varchar对应String
+    private String name;
+    private String password;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
+
+</code></pre><ul>
+<li>Book类</li>
+</ul>
+<pre><code>package com.pojo;
+
+public class Book {
+//    类型和数据库保持一致，varchar对应String
+    private int id;
+    private String name;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+</code></pre><ol start="4">
+<li>建立dao层（data access object）,数据访问层，用来访问数据库
+右击 com包 -&gt; New -&gt; Package-&gt;输入 dao
+在dao包中建立两个类的接口，UserDao、BookDao:
+右击dao-&gt; New -&gt; Java Class-&gt;输入&quot;UserDao&rdquo;，kind选择&quot;interface&rdquo;</li>
+</ol>
+<ul>
+<li>UserDao</li>
+</ul>
+<pre><code>package com.dao;
+
+import com.pojo.User;
+import java.util.List;
+
+public interface UserDao {
+
+    List&lt;User&gt; queryAllUser();//查询所有user
+    int addUser(User user);//添加user
+}
+
+</code></pre><ul>
+<li>BookDao</li>
+</ul>
+<pre><code>package com.dao;
+
+import com.pojo.Book;
+
+import java.util.List;
+
+public interface BookDao {
+    List&lt;Book&gt; queryAllBook();//查询所有书籍
+    int addBook(Book book);//添加书籍
+}
+
+</code></pre><ol start="6">
+<li>建立jdbc.properties文件，典型的Java属性配置文件
+右击resources文件夹-&gt;new -&gt;File-&gt;jdbc.properties(带后缀)
+配置mysql数据库，使用test库</li>
+</ol>
+<pre><code>jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf8
+jdbc.username=root
+jdbc.password=123456
+
+</code></pre><ol start="5">
+<li>建立类的映射文件夹（mapper）
+右击 resources -&gt;New -&gt; Directory -&gt; mapper
+在mapper文件夹下建立UserMapper.xml和BookMapper.xml映射文件</li>
+</ol>
+<ul>
+<li>UserMapper.xml内容如下，BookMapper同UserMapper.xml</li>
+</ul>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;httpz://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+
+
+&lt;!--映射器--&gt;
+&lt;mapper namespace=&quot;com.dao.UserDao&quot;&gt;
+    &lt;!--将数据库user表映射到userResultMap中 类型为User --&gt;
+    &lt;resultMap id=&quot;userResultMap&quot; type=&quot;User&quot;&gt;
+        &lt;result property=&quot;name&quot; column=&quot;name&quot;/&gt;
+        &lt;result property=&quot;password&quot; column=&quot;password&quot;/&gt;
+    &lt;/resultMap&gt;
+
+    &lt;!--sql语句--&gt;
+    &lt;!--实现userDao中定义的 queryAllUser 方法--&gt;
+    &lt;select id=&quot;queryAllUser&quot; resultMap=&quot;userResultMap&quot;&gt;
+        select * from user
+    &lt;/select&gt;
+
+    &lt;!--实现userDao中定义的 addUser 方法--&gt;
+    &lt;insert id=&quot;addUser&quot; parameterType=&quot;User&quot;&gt;
+        insert into user(name,password) value (#{name},#{password})
+    &lt;/insert&gt;
+
+&lt;/mapper&gt;
+
+</code></pre><ol start="6">
+<li>核心配置文件configuration.xml
+右击resources -&gt;File -&gt; mybatis-config.xml</li>
+</ol>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;!-- 引入外部资源文件 --&gt;
+    &lt;properties resource=&quot;jdbc.properties&quot;&gt;&lt;/properties&gt;
+    &lt;!-- 设置驼峰匹配 --&gt;
+    &lt;settings&gt;
+        &lt;setting name=&quot;mapUnderscoreToCamelCase&quot; value=&quot;true&quot;/&gt;
+    &lt;/settings&gt;
+    &lt;!-- 设置包扫描(别名) --&gt;
+    &lt;typeAliases&gt;
+        &lt;package name=&quot;com.pojo&quot;/&gt;
+    &lt;/typeAliases&gt;
+    &lt;!-- 配置环境：可以配置多个环境，default：配置某一个环境的唯一标识，表示默认使用哪个环境 --&gt;
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;!-- 配置连接信息 --&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;${jdbc.driverClass}&quot;/&gt;
+                &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot;/&gt;
+                &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot;/&gt;
+                &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+    &lt;!-- 配置映射文件：用来配置sql语句和结果集类型等 --&gt;
+    &lt;mappers&gt;
+        &lt;mapper resource=&quot;classpath:mapper/*.xml&quot;/&gt;
+    &lt;/mappers&gt;
+&lt;/configuration&gt;
+</code></pre><p>目录结构如下：
+<img src="https://img-blog.csdnimg.cn/20190624162123420.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="3mybatis语法">3.MyBatis语法</h2>
+<p>MyBatis的真正强大之处在于SQL映射语句，也是它的魅力所在，使用SQL映射文件配置可减少50%以上的代码量，MyBatis专注于SQL。关于SQL映射文件的几个元素配置：</p>
+<ol>
+<li>
+<p>mapper:映射元素的根元素节点，只有一个namespace（命名空间），其主要作用在于：</p>
+<ul>
+<li>区分不同的mapper，全局唯一</li>
+<li>绑定DAO接口，即面向接口编程</li>
+</ul>
+</li>
+<li>
+<p>ResultMap:用来描述数据库结果集和对象的对应关系</p>
+</li>
+<li>
+<p>sql:可以重用的SQL块</p>
+</li>
+<li>
+<p>insert:映射插入语句</p>
+<ul>
+<li>dao中  <code>int addMember(Member member);</code>，</li>
+<li>mapper中这样写（<strong>id和方法名一致</strong>）：
+<code>&lt;insert id=&quot;addMember&quot; parameterType=&quot;Member&quot;&gt; insert into member(memName,password) value (#{memName},#{password}) &lt;/insert&gt;</code></li>
+</ul>
+</li>
+<li>
+<p>delete:映射删除语句</p>
+<ul>
+<li>dao 中<code>int deleteMemberById(int memId);</code></li>
+<li>mapper中这样写
+<code>&lt;delete id=&quot;deleteMemberById&quot; parameterType=&quot;int&quot;&gt; delete from member where memId=#{memId}  &lt;/delete&gt;</code></li>
+</ul>
+</li>
+<li>
+<p>select:映射查询语句</p>
+<ul>
+<li>dao 中<code>Member queryById(int memId);</code></li>
+<li>mapper中这样写
+<code>&lt;select id=&quot;queryById&quot; parameterType=&quot;int&quot; resultType=&quot;Member&quot;&gt; select * from member where memId=#{memId} &lt;/select&gt;</code></li>
+</ul>
+</li>
+<li>
+<p>update:映射更新语句</p>
+<ul>
+<li>dao中<code> int updateMember(Member member);</code></li>
+<li>mapper可以这样写
+<code>&lt;update id=&quot;updateMember&quot; parameterType=&quot;Member&quot;&gt; update member set memName=#{memName},sex=#{sex},password=#{password} &lt;/update&gt;</code></li>
+</ul>
+</li>
+<li>
+<p>parameterType:参数类型（int、String、某个pojo）</p>
+</li>
+<li>
+<p>resultType:返回查询的类型，像这样的sql语句：<code>select * from user where id=1 </code>，只返回1个对象,可为它指定ResultType为User。insert、update、delete元素中均无resultType属性，只有查询操作需要对返回结果指定</p>
+</li>
+<li>
+<p>ResultMap：是对外部resultMap定义的引用，对应外部resultMap的id,像这样的一条sql语句<code>select * from student where age&gt;20</code>会返回多个student对象，可为它指定resultMap为studentResultMap，即ResultMap常用于会返回多条记录是使用。</p>
+</li>
+</ol>
+<h2 id="4实现spring对mybatis的整合">4.实现Spring对MyBatis的整合</h2>
+<h3 id="1-配置datasource">1. 配置DataSource</h3>
+<p>我们将MyBatis配置文件中有关数据源的配置转移到Spring配置文件中单独进行维护。
+在Spring中配置数据源，首先要选择一种具体的数据源实现技术，有dbcp、c3p0、Proxool等，以配置c3p0为例：
+建立Spring的配置文件，右击resources -&gt;New-&gt;Directory-&gt;&quot;Spring&rdquo;
+右击Spring文件夹-&gt;new-&gt;File-&gt;&quot;spring-dao.xml&rdquo;，输入以下代码：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;
+    &lt;!-- 配置整合mybatis过程 --&gt;
+    &lt;!-- 1.配置数据库相关参数properties的属性：${url} --&gt;
+    &lt;context:property-placeholder location=&quot;classpath:jdbc.properties&quot;/&gt;
+
+    &lt;!-- 2.数据库连接池 --&gt;
+    &lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+        &lt;!-- 配置连接池属性 --&gt;
+        &lt;property name=&quot;driverClass&quot; value=&quot;${jdbc.driver}&quot;/&gt;
+        &lt;property name=&quot;jdbcUrl&quot; value=&quot;${jdbc.url}&quot;/&gt;
+        &lt;property name=&quot;user&quot; value=&quot;${jdbc.username}&quot;/&gt;
+        &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+
+        &lt;!-- c3p0连接池的私有属性 --&gt;
+        &lt;property name=&quot;maxPoolSize&quot; value=&quot;30&quot;/&gt;
+        &lt;property name=&quot;minPoolSize&quot; value=&quot;10&quot;/&gt;
+        &lt;!-- 关闭连接后不自动commit --&gt;
+        &lt;property name=&quot;autoCommitOnClose&quot; value=&quot;false&quot;/&gt;
+        &lt;!-- 获取连接超时时间 --&gt;
+        &lt;property name=&quot;checkoutTimeout&quot; value=&quot;10000&quot;/&gt;
+        &lt;!-- 当获取连接失败重试次数 --&gt;
+        &lt;property name=&quot;acquireRetryAttempts&quot; value=&quot;2&quot;/&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- 3.配置SqlSessionFactory对象 --&gt;
+    &lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+        &lt;!-- 注入数据库连接池 --&gt;
+        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+        &lt;!-- 配置MyBaties全局配置文件:mybatis-config.xml --&gt;
+        &lt;property name=&quot;configLocation&quot; value=&quot;classpath:mybatis-config.xml&quot;/&gt;
+        &lt;!-- 扫描pojo包 使用别名 --&gt;
+        &lt;property name=&quot;typeAliasesPackage&quot; value=&quot;com.pojo&quot;/&gt;
+        &lt;!-- 扫描sql配置文件:mapper需要的xml文件 --&gt;
+        &lt;property name=&quot;mapperLocations&quot; value=&quot;classpath:mapper/*.xml&quot;/&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- 4.配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 --&gt;
+    &lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+        &lt;!-- 注入sqlSessionFactory --&gt;
+        &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;/&gt;
+        &lt;!-- 给出需要扫描Dao接口包 --&gt;
+        &lt;property name=&quot;basePackage&quot; value=&quot;com.dao&quot;/&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre><p>将mybatis-config.xml中内容修改为：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;!-- 配置全局属性 --&gt;
+    &lt;settings&gt;
+        &lt;!-- 使用jdbc的getGeneratedKeys获取数据库自增主键值 --&gt;
+        &lt;setting name=&quot;useGeneratedKeys&quot; value=&quot;true&quot; /&gt;
+
+        &lt;!-- 使用列别名替换列名 默认:true --&gt;
+        &lt;setting name=&quot;useColumnLabel&quot; value=&quot;true&quot; /&gt;
+
+        &lt;!-- 开启驼峰命名转换:Table{create_time} -&gt; Entity{createTime} --&gt;
+        &lt;setting name=&quot;mapUnderscoreToCamelCase&quot; value=&quot;true&quot; /&gt;
+    &lt;/settings&gt;
+&lt;/configuration&gt;
+
+</code></pre><p>整合完成</p>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <a href="https://trumpzhang.github.io"><img src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Contact Me</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark" href="tel:***"><i
+                class="ti-mobile mr-3 text-primary"></i>***</a></li>
+          <li class="mb-3"><i class="ti-location-pin mr-3 text-primary"></i>甘肃兰州</li>
+          <li class="mb-3"><a class="text-dark" href="mailto:2567269204@qq.com"><i
+                class="ti-email mr-3 text-primary"></i>2567269204@qq.com</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/trumpzhang/">github</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Categories</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/centos">Centos</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/django">Django</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/hadoop">Hadoop</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/qt">Qt</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/scala">Scala</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-boot">Spring boot</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-cloud">Spring cloud</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/ssm">Ssm</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/vue">Vue</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/about">About</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/blog">Blog</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | @2020 <a href="https://trumpzhang.github.io">张志宇</a> All Rights Reserved |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var indexURL = "https://trumpzhang.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://trumpzhang.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/mark.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://trumpzhang.github.io/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script></body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tk-mybatis on 张志宇的博客</title>
+    <link>https://trumpzhang.github.io/tags/tk-mybatis/</link>
+    <description>Recent content in tk-mybatis on 张志宇的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 04 Mar 2020 18:16:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://trumpzhang.github.io/tags/tk-mybatis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SpringBoot集成tk Mybatis简单方法</title>
+      <link>https://trumpzhang.github.io/blog/springboot/springboot%E9%9B%86%E6%88%90tk-mybatis%E7%AE%80%E5%8D%95%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Wed, 04 Mar 2020 18:16:09 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/springboot/springboot%E9%9B%86%E6%88%90tk-mybatis%E7%AE%80%E5%8D%95%E6%96%B9%E6%B3%95/</guid>
+      <description>前言： 使用SpringBoot很方便，但经常因为一个业务而写很多SQL语句（很多都是CRUD），而怎样才能不写SQL语句或很少写呢？ 最近发现了一款好玩的mybatis插件（通用Mapper）tk-mybatis，它解决了上面的这些问题。 介绍： tk-mybatis由国人编写，码云地址
+ https://gitee.com/free
+ 作者还写了使用文档，地址
+ https://gitee.</description>
+    </item>
+    
+  </channel>
+</rss>

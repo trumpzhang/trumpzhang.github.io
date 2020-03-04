@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>架构 on 张志宇的博客</title>
+    <link>https://trumpzhang.github.io/tags/%E6%9E%B6%E6%9E%84/</link>
+    <description>Recent content in 架构 on 张志宇的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 04 Mar 2020 18:17:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://trumpzhang.github.io/tags/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>网站架构演变过程简述</title>
+      <link>https://trumpzhang.github.io/blog/springcloud/1.%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E6%BC%94%E5%8F%98%E8%BF%87%E7%A8%8B%E7%AE%80%E8%BF%B0/</link>
+      <pubDate>Wed, 04 Mar 2020 18:17:57 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/springcloud/1.%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E6%BC%94%E5%8F%98%E8%BF%87%E7%A8%8B%E7%AE%80%E8%BF%B0/</guid>
+      <description>一、网站架构演变过程 网站架构大致可以分为以下几个阶段： 传统架构（单体应用）-&amp;gt;分布式架构（以项目进行拆分）-&amp;gt;SOA（面向服务架构）-&amp;gt;微服务架构
+1.Monolith（单体应用）架构 1.1	什么是单体应用 首先请回想一下我们所开发的服务是什么样子的。通常情况下，这个服务所对应的代码由多个项目所组成，各个项目会根据自身所提供功能的不同具有一个明确的边界。在编译时，这些项目将被打包成为一个个JAR包，并最终合并在一起形成一个WAR包。接下来，我们需要将该WAR包上传到Web容器中，解压该WAR包，并重新启动服务器。在执行完这一系列操作之后，我们对服务的编译及部署就已经完成了。这种将所有的代码及功能都包含在一个WAR包中的项目组织方式被称为Monolith。例如我们使用的SSH、SSM架构都是单体架构。 1.2	缺点 这种架构将整个业务模块在一个项目中进行开发，按照MVC思想分层。 在项目很小的情况下这种单体应用比较简单，但是随着项目越变越大，代码越来越多，就会存在以下缺点：</description>
+    </item>
+    
+  </channel>
+</rss>

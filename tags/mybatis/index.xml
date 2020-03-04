@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mybatis on 张志宇的博客</title>
+    <link>https://trumpzhang.github.io/tags/mybatis/</link>
+    <description>Recent content in mybatis on 张志宇的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 04 Mar 2020 18:30:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://trumpzhang.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mybatis</title>
+      <link>https://trumpzhang.github.io/blog/ssm/mybatis/</link>
+      <pubDate>Wed, 04 Mar 2020 18:30:45 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/ssm/mybatis/</guid>
+      <description>@TOC
+二.MyBatis框架 1.MyBatis及ORM简介  MyBatis是一个优秀的数据持久层框架，在实体类和SQL语句之间建立映射关系，是一种半自动化的ORM实现。其封装性要低于Hibernate，性能优越，并且小巧、简单易学，应用也越来越广泛。 它内部封装了通过JDBC访问数据库的操作，支持普通的SQL查询、存储过程和高级映射，几乎消除了所有的JDBC代码和参数的手工设置以及结果集的检索 关于ORM(Object Relational Mapping )，你应该知道的: （1）对象/关系映射是一种数据持久化技术。它在对象模型和关系型数据库之间建立起对应关系，并且提供了一种机制，通过JavaBean对象去操作数据库表中的数据。 （2）在开发中，程序员使用面向对象的技术操作数据，而当存储数据时，使用的却是关系数据库，这样造成了很多不便。ORM在对象模型和关系数据库的表之间建立了一座桥梁，有了它，程序员就不需要再使用SQL语句操作数据库中的表，使用API直接操作JavaBean对象就可以实现数据的查询、存储、更改、删除等操作。 （3）MyBatis通过简单的XML或者注解进行配置和原始映射，在实体类和SQL语句之间建立映射关系，是一种半自动化的ORM实现。 MyBatis是ORM的解决方案，下面通过简单的实例体验MyBatis  2.</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot整合Mybatis</title>
+      <link>https://trumpzhang.github.io/blog/springboot/springboot%E6%95%B4%E5%90%88mybatis/</link>
+      <pubDate>Wed, 04 Mar 2020 18:04:21 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/springboot/springboot%E6%95%B4%E5%90%88mybatis/</guid>
+      <description>1.SpringBoot整合Mybatis  File| New|Project |Spring Initializr|  选择需要的组件：  配置Maven:  修改配置文件  application.</description>
+    </item>
+    
+  </channel>
+</rss>

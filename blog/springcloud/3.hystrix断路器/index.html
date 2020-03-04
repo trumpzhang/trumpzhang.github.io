@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+  <meta charset="utf-8">
+  <title>张志宇的博客</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A coder">
+  <meta name="author" content="张志宇">
+  <meta name="generator" content="Hugo 0.65.1" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom">
+      <a class="navbar-brand mobile-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+          src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/trumpzhang/"><i class="ti-github"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+            src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io"> Home </a>
+          </li>
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/blog">Blog</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/contact">Contact</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://trumpzhang.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        
+        <a href="/categories/spring-cloud"
+          class="text-primary">Spring cloud</a>
+        
+        <h2>3.Hystrix</h2>
+        <div class="mb-3 post-meta">
+          <span>By 张志宇</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>04 March 2020</span>
+          
+        </div>
+        
+        <img src="https://trumpzhang.github.io/images/springCloud/springCloud.jpg" class="img-fluid w-100 mb-4" alt="3.Hystrix">
+        
+        <div class="content mb-5">
+          <h3 id="1为什么需要断路器">1.为什么需要断路器</h3>
+<p><strong>1.1存在问题</strong>
+在理想状态下，一个应用依赖的服务都是健康可用的，我们可以正常处理所有的请求。默认情况下tomcat只有一个线程池去处理的客户端发送的所有服务请求，这样在高并发情况下，如果客户端所有的请求堆积到同一个服务接口上，就会产生tomcat的所有线程池去处理该服务接口，可能会导致其他服务奔溃。
+<strong>1.2简介</strong>
+Hystrix，英文意思是豪猪，全身是刺，看起来就不好惹，是一种保护机制。
+<img src="https://img-blog.csdnimg.cn/20200224142734630.png" alt="在这里插入图片描述">
+Hystrix是Netflix开源的一个延迟和容错库，用于隔离访问远程服务、第三方库，防止出现级联失败。
+<strong>1.3雪崩效应</strong>
+在复杂的微服务架构中的应用程序有很多的依赖，都会不可避免地在某些时候失败。高并发的依赖失败时如果没有隔离措施，当前应用服务就有被拖垮的风险。一个请求，可能需要调用多个微服务接口才能实现，会形成非常复杂的调用链路：
+<img src="https://img-blog.csdnimg.cn/20200224143429317.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+如图，一次业务请求，需要调用A、H、I、P四个服务，这四个服务又可能调用其它服务。
+如果此时某个服务出现异常：
+<img src="https://img-blog.csdnimg.cn/20200224143714358.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+例如微服务I发生异常，请求阻塞，用户不会得到响应，则tomcat的这个线程不会释放，于是越来越多的用户请求到来，越来越多的线程会阻塞：
+<img src="https://img-blog.csdnimg.cn/20200224143945958.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+服务器支持的线程和并发数有限，请求一直阻塞，会导致服务器资源耗尽，从而导致所有其它服务不可用，形成雪崩效应。
+Hystrix解决雪崩问题的手段包括：</p>
+<ul>
+<li>线程隔离</li>
+<li>服务熔断</li>
+<li>服务降级</li>
+</ul>
+<p><strong>1.4 解决方法和原理</strong>
+（1）线程隔离
+资源隔离（限流）：包括线程池隔离和信号量隔离，限制调用分布式服务的资源使用，某一个调用的服务出现问题不会影响其他服务调用。</p>
+<ul>
+<li>线程池隔离模式：使用一个线程池来存储当前请求，线程池对请求作处理，设置任务返回处理超时时间，堆积的请求先入线程池队列。这种方式要为每个依赖服务申请线程池，有一定的资源消耗，好处是可以应对突发流量（流量洪峰来临时，处理不完可将数据存储到线程池队里慢慢处理）</li>
+<li>信号量隔离模式：使用一个原子计数器（或信号量）记录当前有多少个线程在运行，请求来先判断计数器的数值，若超过设置的最大线程个数则丢弃该类型的新请求，若不超过则执行计数操作请求来计数器+1，请求返回计数器-1。这种方式是严格的控制线程且立即返回模式，无法应对突发流量（流量洪峰来临时，处理的线程超过数量，其他的请求会直接返回，不继续去请求依赖的服务）</li>
+</ul>
+<p>（2）服务熔断
+正常情况下，断路器处于关闭状态(Closed)，如果调用持续出错或者超时，电路被打开进入熔断状态(Open)，后续一段时间内的所有调用都会被拒绝(Fail Fast)，一段时间以后，保护器会尝试进入半熔断状态(Half-Open)，允许少量请求进来尝试，如果调用仍然失败，则回到熔断状态；如果调用成功，则回到电路闭合状态;
+<img src="https://img-blog.csdnimg.cn/20200224145145273.png" alt="在这里插入图片描述">
+Hystrix提供了如下的几个关键参数，来对一个熔断器进行配置：</p>
+<ul>
+<li>circuitBreaker.requestVolumeThreshold    //滑动窗口的大小，默认为20</li>
+<li>circuitBreaker.sleepWindowInMilliseconds  //过多长时间，熔断器再次检测是否开启，默认为5000，即5s</li>
+<li>circuitBreaker.errorThresholdPercentage  //错误率，默认50%</li>
+</ul>
+<p>3个参数放在一起，所表达的意思就是：
+每当20个请求中，有50%失败时，熔断器就会打开，此时再调用此服务，将会直接返回失败，不再调远程服务。直到5s之后，重新检测该触发条件，判断是否把熔断器关闭，或者继续打开。
+熔断的3个<code>状态</code>：</p>
+<ul>
+<li>Closed:关闭状态，所有请求都正常访问</li>
+<li>Open：打开状态，所有请求都会被降级。Hystrix会对请求情况计数，当一定时间内失败请求百分比达到阈值，则触发熔断，断路器会完全打开。</li>
+<li>Half Open：半开状态，open状态不是永久的，打开后会进入休眠时间（默认5s）。随后断路器会自动进入半开状态，此时会释放部分请求通过，若这些请求都是健康的，则会完全关闭断路器，否则继续保持打开，再次进行休眠计时。</li>
+</ul>
+<p>（3）服务降级
+服务降级：优先保证核心服务，而非核心服务不可用或弱可用。
+例如：当用户的请求故障时，不会被阻塞，更不会无休止的等待或者看到系统奔溃，至少可以看到一个执行结果（例如返回友好的提示信息），服务降级虽然会导致请求失败，但是不会导致阻塞，且对其它服务无响应。
+触发Hystrix服务降级的情况：</p>
+<ul>
+<li>线程池已满</li>
+<li>请求超时</li>
+</ul>
+<p><strong>1.5 Hystrix使用</strong>
+在服务消费方使用Hystrix</p>
+<ul>
+<li><strong>引入坐标</strong></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">        &lt;dependency<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span>
+            &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">        &lt;/dependency&gt;</span>
+
+</code></pre></div><ul>
+<li><strong>application.yml</strong></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">在这里插入代码片
+</code></pre></div><ul>
+<li><strong>配置启动类</strong></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@EnableCircuitBreaker</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ServiceConsumerApplication</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>ServiceConsumerApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>为可能发生熔断的方法添加@HystrixCommand注解</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RestController</span>
+<span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#75715e">//定义全局的熔断方法
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@DefaultProperties</span><span style="color:#f92672">(</span>defaultFallback <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;queryUserByIdFallBack&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserController</span> <span style="color:#f92672">{</span>
+    
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;get/{id}&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@HystrixCommand</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">queryUserById</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span> Long id<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;请求的id:&#34;</span><span style="color:#f92672">+</span>id<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">queryUserByIdFallBack</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;服务忙，稍后再试&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p>这样当user/get/{id}请求调用的远程服务不可用时，将返回fallBack回调函数的内容。
+<strong>1.6设置超时</strong>
+Hystrix设置的默认超时时长为1，请求在超过1秒后会返回错误信息，可以通过配置信息修改时长</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">hystrix</span>:
+  <span style="color:#66d9ef">command</span>:
+    <span style="color:#66d9ef">default</span>:
+      <span style="color:#66d9ef">execution</span>:
+        <span style="color:#66d9ef">isolation</span>:
+          <span style="color:#66d9ef">thread</span>:
+            <span style="color:#66d9ef">timeoutInMilliseconds</span>: <span style="color:#ae81ff">6000</span> <span style="color:#75715e">#超时时间</span>
+
+</code></pre></div>
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <a href="https://trumpzhang.github.io"><img src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Contact Me</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark" href="tel:***"><i
+                class="ti-mobile mr-3 text-primary"></i>***</a></li>
+          <li class="mb-3"><i class="ti-location-pin mr-3 text-primary"></i>甘肃兰州</li>
+          <li class="mb-3"><a class="text-dark" href="mailto:2567269204@qq.com"><i
+                class="ti-email mr-3 text-primary"></i>2567269204@qq.com</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/trumpzhang/">github</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Categories</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/centos">Centos</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/django">Django</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/hadoop">Hadoop</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/qt">Qt</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/scala">Scala</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-boot">Spring boot</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-cloud">Spring cloud</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/ssm">Ssm</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/vue">Vue</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/about">About</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/blog">Blog</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | @2020 <a href="https://trumpzhang.github.io">张志宇</a> All Rights Reserved |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var indexURL = "https://trumpzhang.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://trumpzhang.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/mark.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://trumpzhang.github.io/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script></body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scala on 张志宇的博客</title>
+    <link>https://trumpzhang.github.io/categories/scala/</link>
+    <description>Recent content in Scala on 张志宇的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 04 Mar 2020 18:28:14 +0800</lastBuildDate>
+    
+	<atom:link href="https://trumpzhang.github.io/categories/scala/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>scala开发环境配置</title>
+      <link>https://trumpzhang.github.io/blog/scala/1.scala%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 04 Mar 2020 18:28:14 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/scala/1.scala%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+      <description>1.安装Scala并配置环境变量（一般在安装时就配好了）
+2.检查idea版本（插件必须与idea版本兼容）Help-&amp;gt;About，可以看到为2018.3.2
+3.下载idea的开发插件（.zip文件）下载2018.3.X的插件即可
+https://plugins.jetbrains.com/plugin/1347-scala
+无需解压，将此文件拷贝至idea安装目录/Plugins下
+4.打开idea-&amp;gt;File-&amp;gt;setting-&amp;gt;plugins-&amp;gt;install plugin from disk，重启idea
+5.创建第一个Scala示例</description>
+    </item>
+    
+  </channel>
+</rss>

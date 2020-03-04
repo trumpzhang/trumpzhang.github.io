@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+  <meta charset="utf-8">
+  <title>张志宇的博客</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A coder">
+  <meta name="author" content="张志宇">
+  <meta name="generator" content="Hugo 0.65.1" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom">
+      <a class="navbar-brand mobile-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+          src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/trumpzhang/"><i class="ti-github"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+            src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io"> Home </a>
+          </li>
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/blog">Blog</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/contact">Contact</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://trumpzhang.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        
+        <a href="/categories/ssm"
+          class="text-primary">S s m</a>
+        
+        <h2>SpringMvc</h2>
+        <div class="mb-3 post-meta">
+          <span>By 张志宇</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>04 March 2020</span>
+          
+        </div>
+        
+        <img src="https://trumpzhang.github.io/images/ssm/ssm.jpg" class="img-fluid w-100 mb-4" alt="SpringMvc">
+        
+        <div class="content mb-5">
+          <p>@[TOC](三.SSM框架之Spring MVC)</p>
+<h1 id="三spring-mvc">三.Spring MVC</h1>
+<h2 id="1spring-mvc介绍">1.Spring MVC介绍</h2>
+<p>SpringMVC是Spring框架中用于Web应用开发的一个模块，是Spring提供的一个基于MVC设计模式的优秀Web开发框架，它在本质上相当于servlet。在MVC设计模式中，Spring MVC作为控制器(Controller)来建立模型与视图的数据交互，是结构最清晰的MVC Model2实现，是一个典型的MVC框架。
+在Spring MVC框架中，Controller替代Servlet来担负控制器的职责，Controller接受请求，调用相应的Model进行处理，处理器完成业务处理后返回处理结果。Controller调用相应的View并对结果进行视图渲染，最终传送响应消息到客户端。
+Spring MVC采用松耦合可插拔的组件结构，具有高度可配置性，比其他MVC更具扩展性和灵活性。此外，Spring MVC的注解驱动和对REST风格的支持，是他最具特色的功能。</p>
+<h2 id="2搭建环境">2.搭建环境</h2>
+<ol>
+<li>Spring MVC的配置</li>
+<li>创建Controller</li>
+<li>创建View（使用JSP作为视图）</li>
+<li>部署运行</li>
+</ol>
+<h3 id="1使用maven管理你的jar包">（1）使用Maven（管理你的jar包）</h3>
+<p>有时你的项目中所添加的jar包太多，导致你在别的机器上部署时非常困难，你需要去下载各种jar包，版本号也可能忘掉，使用Maven就可以很好的解决这些问题。
+Maven是一个项目管理和综合工具。Maven提供了开发人员构建一个完整的生命周期框架。开发团队可以自动完成项目的基础工具建设，Maven使用标准的目录结构和默认构建生命周期。
+在多个开发团队环境时，Maven可以设置按标准在非常短的时间里完成配置工作。由于大部分项目的设置都很简单，并且可重复使用，Maven让开发人员的工作更轻松，同时创建报表，检查，构建和测试自动化设置。</p>
+<p>建立Maven项目，打开IDEA-&gt;New Project-&gt;Maven，勾选Create from archetype,选择maven-archetype-webapp
+<img src="https://img-blog.csdnimg.cn/20190630143123167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>建立demo2项目
+<img src="https://img-blog.csdnimg.cn/20190630143322898.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+打开pom.xml文件，输入依赖的jar包名及其版本：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+  &lt;groupId&gt;com&lt;/groupId&gt;
+  &lt;artifactId&gt;demo2&lt;/artifactId&gt;
+  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+  &lt;packaging&gt;war&lt;/packaging&gt;
+
+  &lt;name&gt;demo2 Maven Webapp&lt;/name&gt;
+  &lt;!-- FIXME change it to the project's website --&gt;
+  &lt;url&gt;http://www.example.com&lt;/url&gt;
+
+  &lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+    &lt;spring.version&gt;5.0.3.RELEASE&lt;/spring.version&gt;
+    &lt;mybatis.version&gt;3.4.4&lt;/mybatis.version&gt;
+  &lt;/properties&gt;
+  &lt;dependencies&gt;
+    &lt;!-- 单元测试 --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;3.8.1&lt;/version&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;!-- 第一部分：Spring 配置--&gt;
+    &lt;!-- Spring core --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-context-support&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- Spring DAO --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- Spring mvc --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-web&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- 第二部分：Servlet web --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+      &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+      &lt;version&gt;3.0.1&lt;/version&gt;
+      &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;javax.servlet.jsp&lt;/groupId&gt;
+      &lt;artifactId&gt;jsp-api&lt;/artifactId&gt;
+      &lt;version&gt;2.2&lt;/version&gt;
+      &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+      &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+      &lt;version&gt;1.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;taglibs&lt;/groupId&gt;
+      &lt;artifactId&gt;standard&lt;/artifactId&gt;
+      &lt;version&gt;1.1.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+      &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+      &lt;version&gt;2.9.4&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- 第三部分：数据库和mybatis --&gt;
+    &lt;!-- 数据库 --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;mysql&lt;/groupId&gt;
+      &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+      &lt;version&gt;5.1.38&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- 数据库连接池 --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.mchange&lt;/groupId&gt;
+      &lt;artifactId&gt;c3p0&lt;/artifactId&gt;
+      &lt;version&gt;0.9.5.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- MyBatis --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+      &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+      &lt;version&gt;${mybatis.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- mybatis-spring整合包 --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+      &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
+      &lt;version&gt;1.3.1&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- 第四部分：日志 --&gt;
+    &lt;!-- 实现slf4j接口并整合 --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+      &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;
+      &lt;version&gt;1.1.1&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+  &lt;build&gt;
+    &lt;finalName&gt;onlineShop&lt;/finalName&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+        &lt;configuration&gt;
+          &lt;source&gt;1.8&lt;/source&gt;
+          &lt;target&gt;1.8&lt;/target&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+&lt;/project&gt;
+
+</code></pre><p>之后在src下建立java文件夹（mark as Sources Root）,建立resources文件夹（mark as Resources Root），复制前边java文件夹和resources文件夹下的文件到新的项目中。</p>
+<h3 id="2在webxml中配置servlet">（2）在web.xml中配置Servlet</h3>
+<p>DispatcherServlet是整个Spring MVC框架的核心，它负责截获请求并将其分派给相应的处理器处理。配置Spring MVC，首先要配置DispatcherServlet，跟所有的Servlet一样，必须在web.xml中进行配置。如下：</p>
+<pre><code>&lt;!DOCTYPE web-app PUBLIC
+        &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;
+        &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;
+
+&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;
+         version=&quot;3.1&quot; metadata-complete=&quot;true&quot;&gt;
+    &lt;display-name&gt;Archetype Created Web Application&lt;/display-name&gt;
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+        
+        &lt;init-param&gt;
+            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+            &lt;param-value&gt;classpath:spring/spring-*.xml&lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;/servlet&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;
+        &lt;!-- 默认匹配所有的请求 --&gt;
+        &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+    &lt;filter&gt;
+        &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;
+        &lt;filter-class&gt;
+            org.springframework.web.filter.CharacterEncodingFilter
+        &lt;/filter-class&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;encoding&lt;/param-name&gt;
+            &lt;param-value&gt;utf-8&lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;/filter&gt;
+
+    &lt;filter-mapping&gt;
+        &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;
+        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+    &lt;/filter-mapping&gt;
+
+&lt;/web-app&gt;
+</code></pre><h3 id="2创建spring-mvc的配置文件spring-mvcxml">（2）创建Spring MVC的配置文件（spring-mvc.xml）</h3>
+<p>在spring文件夹下建立spring-mvc.xml文件，内容如下：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd&quot;&gt;
+    &lt;!-- 配置SpringMVC --&gt;
+    &lt;!-- 1.开启SpringMVC注解模式 --&gt;
+    &lt;!-- 简化配置：
+        (1)自动注册DefaultAnootationHandlerMapping,AnotationMethodHandlerAdapter
+        (2)提供一些列：数据绑定，数字和日期的format @NumberFormat, @DateTimeFormat, xml,json默认读写支持
+    --&gt;
+    &lt;mvc:annotation-driven /&gt;
+
+    &lt;!-- 2.静态资源默认servlet配置
+        (1)加入对静态资源的处理：js,gif,png
+        (2)允许使用&quot;/&quot;做整体映射
+     --&gt;
+    &lt;mvc:default-servlet-handler/&gt;
+
+    &lt;!-- 3.配置jsp 显示ViewResolver --&gt;
+    &lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+        &lt;property name=&quot;viewClass&quot; value=&quot;org.springframework.web.servlet.view.JstlView&quot; /&gt;
+        &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot; /&gt;
+        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- 4.扫描web相关的bean --&gt;
+    &lt;context:component-scan base-package=&quot;com.controller&quot; /&gt;
+&lt;/beans&gt;
+</code></pre><h3 id="3创建controller">（3）创建Controller</h3>
+<p>右击com包-&gt;New-&gt;Package-&gt;输入包名&quot;controller&rdquo;
+在controller包下建立名为&quot;UserController&quot;的Java Class</p>
+<pre><code>package com.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+@Controller
+public class UserController {
+
+    @RequestMapping(&quot;/first&quot;)
+    public String login(){
+        return &quot;first&quot;;
+    }
+
+}
+
+</code></pre><h3 id="4创建view">（4）创建View</h3>
+<p>webapp下建立jsp文件夹，jsp下建立first.jsp文件</p>
+<pre><code>
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;first&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;欢迎访问first.jsp&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+
+</code></pre><h3 id="5部署运行">（5）部署运行</h3>
+<p>安装好Tomcat
+Add Configuration-&gt;Templates-&gt;Tomcat Server-&gt;Local
+Configure-&gt;选择Tomcat的安装目录，选择Deployment-&gt;demo2 war exploded，点击Apply，点击OK</p>
+<p>步骤如下：
+<img src="https://img-blog.csdnimg.cn/20190630152137683.gif" alt="在这里插入图片描述">
+修改index.jsp的内容，向其中加入一个超链接
+index.jsp</p>
+<pre><code>&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;%
+    String appPath=request.getContextPath();
+%&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h2&gt;Hello World!&lt;/h2&gt;
+&lt;a href=&quot;&lt;%=appPath%&gt;/first&quot;&gt;跳转到first.jsp&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+</code></pre><p>点击绿色小按钮，启动TomCat服务器，等待浏览器自动打开：
+<img src="https://img-blog.csdnimg.cn/2019063017140951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+点击链接：
+<img src="https://img-blog.csdnimg.cn/20190630171452908.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="3向视图发送数据">3.向视图发送数据</h2>
+<p>在数据库test的user表中插入几条数据，下面演示如何将user中的数据打印在first.jsp上</p>
+<ol>
+<li>在UserDao接口中写queryAllUser方法</li>
+</ol>
+<pre><code>package com.dao;
+
+import com.pojo.User;
+
+import java.util.List;
+
+public interface UserDao {
+    List&lt;User&gt; queryAllUser();
+}
+</code></pre><ol start="2">
+<li>在UserMapper.xml中实现queryAllUser方法</li>
+</ol>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;httpz://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;!--映射器--&gt;
+&lt;mapper namespace=&quot;com.dao.UserDao&quot;&gt;
+    &lt;!--将数据库member表映射到memberResultMap中 类型为Member --&gt;
+    &lt;resultMap id=&quot;userResultMap&quot; type=&quot;User&quot;&gt;
+        &lt;result property=&quot;name&quot; column=&quot;name&quot;/&gt;
+        &lt;result property=&quot;password&quot; column=&quot;password&quot;/&gt;
+    &lt;/resultMap&gt;
+
+    &lt;!--sql语句--&gt;
+    &lt;!--实现memDao的增删改查抽象方法--&gt;
+
+    &lt;select id=&quot;queryAllUser&quot; resultMap=&quot;userResultMap&quot;&gt;
+        select * from user
+    &lt;/select&gt;
+&lt;/mapper&gt;
+
+</code></pre><ol start="3">
+<li>建立服务层（DAO层为服务层提供底层API）,在com包下建立service包，service包下建立impl包。建立spring-services.xml文件，如下：</li>
+</ol>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot; xmlns:jdbc=&quot;http://www.springframework.org/schema/jdbc&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd&quot;&gt;
+    &lt;!-- 扫描service包下所有使用注解的类型 --&gt;
+    &lt;context:component-scan base-package=&quot;com.service&quot; /&gt;
+
+    &lt;!-- 配置事务管理器 --&gt;
+    &lt;bean id=&quot;transactionManager&quot;
+          class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+        &lt;!-- 注入数据库连接池 --&gt;
+        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
+    &lt;/bean&gt;
+    &lt;!-- 配置基于注解的声明式事务 --&gt;
+    &lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot; /&gt;
+
+&lt;/beans&gt;
+
+</code></pre><p>整体目录如下：
+<img src="https://img-blog.csdnimg.cn/20190630180740104.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ol start="4">
+<li>service包下建立“UserService”接口</li>
+</ol>
+<pre><code>package com.service;
+
+import com.pojo.User;
+import java.util.List;
+
+public interface UserService {
+   List&lt;User&gt; queryAllUser();
+}
+
+</code></pre><ol start="5">
+<li>impl包下建立UserServicesImpl来实现UserService接口（注意添加注释@Service指出服务层，调用DAO层时需要使用AutoWired装配userDao）</li>
+</ol>
+<pre><code>package com.service.impl;
+
+
+import com.dao.UserDao;
+import com.pojo.User;
+import com.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class UserServiceImpl implements UserService {
+    @Autowired
+    private UserDao userDao;
+
+    public List&lt;User&gt; queryAllUser()  { return userDao.queryAllUser();  }
+}
+
+</code></pre><ol start="6">
+<li>在UserController启用自动装配，调用UserService的queryAllUser方法，将其添加到model中，将数据发送至first.jsp</li>
+</ol>
+<pre><code>package com.controller;
+
+import com.pojo.User;
+import com.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
+
+@Controller
+public class UserController {
+    @Autowired
+    private UserService userService;
+//    url请求
+    @RequestMapping(&quot;/first&quot;)
+    public String login(Model model){
+//        调用服务层实现查询所有信息的功能
+        List&lt;User&gt; allUser=userService.queryAllUser();
+//        将结构保存至model中
+        model.addAttribute(&quot;allUser&quot;,allUser);
+//        转到first.jsp，同时发送model的所有数据
+        return &quot;first&quot;;
+    }
+
+}
+</code></pre><ol start="7">
+<li>first.jsp接受数据并进行渲染，使用BootStrap的表格显示model的数据，（此处需要用到JSTL）,我们修改first.jsp为：</li>
+</ol>
+<pre><code>&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;% String appPath = request.getContextPath(); %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;first&lt;/title&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;!-- 引入 Bootstrap --&gt;
+    &lt;link href=&quot;https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+
+    &lt;div class=&quot;row clearfix&quot;&gt;
+        &lt;div class=&quot;col-md-12 column&quot;&gt;
+            &lt;table class=&quot;table table-hover table-striped&quot;&gt;
+                &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;name&lt;/th&gt;
+                    &lt;th&gt;password&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;/thead&gt;
+
+                &lt;tbody&gt;
+                &lt;c:forEach var=&quot;member1&quot; items=&quot;${requestScope.get('allUser')}&quot; varStatus=&quot;status&quot;&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;${member1.name}&lt;/td&gt;
+                        &lt;td&gt;${member1.password}&lt;/td&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/c:forEach&gt;
+
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><p>我们部署项目，查看是否成功执行
+<img src="https://img-blog.csdnimg.cn/20190630181543215.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="4view向controller传参">4.View向Controller传参</h2>
+<p>假设现在要实现一个删除功能，即能根据name属性删除该记录，向first.jsp中加入一行代码：</p>
+<pre><code>&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;% String appPath = request.getContextPath(); %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;后台&lt;/title&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;!-- 引入 Bootstrap --&gt;
+    &lt;link href=&quot;https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+
+    &lt;div class=&quot;row clearfix&quot;&gt;
+        &lt;div class=&quot;col-md-12 column&quot;&gt;
+            &lt;table class=&quot;table table-hover table-striped&quot;&gt;
+                &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;name&lt;/th&gt;
+                    &lt;th&gt;password&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;/thead&gt;
+
+                &lt;tbody&gt;
+                &lt;c:forEach var=&quot;member1&quot; items=&quot;${requestScope.get('allUser')}&quot; varStatus=&quot;status&quot;&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;${member1.name}&lt;/td&gt;
+                        &lt;td&gt;${member1.password}&lt;/td&gt;
+                         &lt;%--加入删除，${member1.name}为向controller传递的参数--%&gt;
+                        &lt;td&gt;&lt;a href=&quot;&lt;%=appPath%&gt;/delByName/${member1.name}&quot;&gt;删除&lt;/a&gt;&lt;/td&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/c:forEach&gt;
+
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><p>first.jsp变为这样：
+<img src="https://img-blog.csdnimg.cn/20190630182937850.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ol>
+<li>在DAO中添加delByName方法</li>
+</ol>
+<pre><code>package com.dao;
+
+import com.pojo.User;
+
+import java.util.List;
+
+public interface UserDao {
+    List&lt;User&gt; queryAllUser();
+    int delByName(String name);
+}
+
+</code></pre><ol start="2">
+<li>在UserMapper.xml实现delByName</li>
+</ol>
+<pre><code>&lt;delete id=&quot;delByName&quot; parameterType=&quot;String&quot;&gt;
+        delete from user where name=#{name}
+    &lt;/delete&gt;
+</code></pre><ol start="3">
+<li>在服务层UserService接口中写一个DelByName方法，并在UserServiceImpl中实现该接口的方法
+UserService:</li>
+</ol>
+<pre><code>package com.service;
+
+import com.pojo.User;
+import java.util.List;
+
+public interface UserService {
+   List&lt;User&gt; queryAllUser();
+   int delByName(String name);
+}
+</code></pre><p>UserServiceImpl:</p>
+<pre><code>package com.service.impl;
+
+import com.dao.UserDao;
+import com.pojo.User;
+import com.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service
+public class UserServiceImpl implements UserService {
+    @Autowired
+    private UserDao userDao;
+
+    public List&lt;User&gt; queryAllUser()  { return userDao.queryAllUser();  }
+    public int delByName(String name){ return userDao.delByName(name); }
+}
+
+</code></pre><ol start="4">
+<li>在UserController中实现delByName请求：</li>
+</ol>
+<pre><code>package com.controller;
+
+import com.pojo.User;
+import com.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
+
+@Controller
+public class UserController {
+    @Autowired
+    private UserService userService;
+//    url请求
+    @RequestMapping(&quot;/first&quot;)
+    public String login(Model model){
+//        调用服务层实现查询所有信息的功能
+        List&lt;User&gt; allUser=userService.queryAllUser();
+//        将结构保存至model中
+        model.addAttribute(&quot;allUser&quot;,allUser);
+//        转到first.jsp，同时发送model的所有数据
+        return &quot;first&quot;;
+    }
+
+    @RequestMapping(&quot;/delByName/{name}&quot;)
+    public String del(@PathVariable(&quot;name&quot;)String name1){//接受到name
+        userService.delByName(name1);//调用delByName方法
+        return &quot;redirect:/first&quot;;//重定向到first
+    }
+}
+
+</code></pre><p>实现效果：
+<img src="https://img-blog.csdnimg.cn/20190630184845174.gif" alt="在这里插入图片描述">
+View可一次传送多个参数给Controller。</p>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <a href="https://trumpzhang.github.io"><img src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Contact Me</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark" href="tel:***"><i
+                class="ti-mobile mr-3 text-primary"></i>***</a></li>
+          <li class="mb-3"><i class="ti-location-pin mr-3 text-primary"></i>甘肃兰州</li>
+          <li class="mb-3"><a class="text-dark" href="mailto:2567269204@qq.com"><i
+                class="ti-email mr-3 text-primary"></i>2567269204@qq.com</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/trumpzhang/">github</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Categories</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/centos">Centos</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/django">Django</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/hadoop">Hadoop</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/qt">Qt</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/scala">Scala</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-boot">Spring boot</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-cloud">Spring cloud</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/ssm">Ssm</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/vue">Vue</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/about">About</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/blog">Blog</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | @2020 <a href="https://trumpzhang.github.io">张志宇</a> All Rights Reserved |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var indexURL = "https://trumpzhang.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://trumpzhang.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/mark.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://trumpzhang.github.io/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script></body>
+</html>

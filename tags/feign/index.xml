@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Feign on 张志宇的博客</title>
+    <link>https://trumpzhang.github.io/tags/feign/</link>
+    <description>Recent content in Feign on 张志宇的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 04 Mar 2020 18:23:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://trumpzhang.github.io/tags/feign/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Feign</title>
+      <link>https://trumpzhang.github.io/blog/springcloud/feign/</link>
+      <pubDate>Wed, 04 Mar 2020 18:23:12 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/springcloud/feign/</guid>
+      <description>1.什么是Feign Feign是一个声明式的Web Service客户端，它的目的就是让Web Service调用更加简单。Feign提供了Http请求的模板，通过编写简单的接口和插入注解，就可以定义好Http请求的参数、格式、地址等信息。而Feign则会完全代理Http请求，我们只需要像调用方法一样调用它就可以完成服务请求及相关处理，这使得我们调用Http API更加优雅。 Feign整合了Ribbon和Hystrix，从而让Feign的使用更加方便。 2.Feign的特性
+ 可插拔的注解支持，包括Feign注解和JAX-RS注解; 支持可插拔的HTTP编码器和解码器; 支持Hystrix和它的Fallback; 支持Ribbon的负载均衡; 支持HTTP请求和响应的压缩。  这看起来有点像我们springmvc模式的Controller层的RequestMapping映射。这种模式是我们非常喜欢的。Feign是用@FeignClient来映射服务的。 Feign是以接口方式进行调用,而不是通过RestTemplate来调用,feign底层还是ribbon,并进行了封装,让我们调用起来更加方便。</description>
+    </item>
+    
+  </channel>
+</rss>

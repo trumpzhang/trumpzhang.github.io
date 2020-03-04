@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vue on 张志宇的博客</title>
+    <link>https://trumpzhang.github.io/tags/vue/</link>
+    <description>Recent content in vue on 张志宇的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 04 Mar 2020 15:52:48 +0800</lastBuildDate>
+    
+	<atom:link href="https://trumpzhang.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vue组件封装及父、子组件通信</title>
+      <link>https://trumpzhang.github.io/blog/vue/vue%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85%E5%8F%8A%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/</link>
+      <pubDate>Wed, 04 Mar 2020 15:52:48 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/vue/vue%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85%E5%8F%8A%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/</guid>
+      <description>1.封装子组件时  首先对子组件需要的的数据进行整理 子组件名称使用 - 区别，使用div等标签包裹子组件模板内容 子组件的style文件加上scoped作用域 子组件添加props、data、methods等属性，数据由父组件传入子组件 子组件具体的事件处理逻辑应在父组件实现，因此在子组件使用this.$emit(&#39;inChange&#39;,index) 表示父组件监听 inChange事件，将index传至父组件，让父组件实现具体的事件处理逻辑  2.</description>
+    </item>
+    
+  </channel>
+</rss>

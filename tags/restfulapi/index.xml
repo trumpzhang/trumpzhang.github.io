@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RestfulAPI on 张志宇的博客</title>
+    <link>https://trumpzhang.github.io/tags/restfulapi/</link>
+    <description>Recent content in RestfulAPI on 张志宇的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 04 Mar 2020 18:09:27 +0800</lastBuildDate>
+    
+	<atom:link href="https://trumpzhang.github.io/tags/restfulapi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RestfulAPI</title>
+      <link>https://trumpzhang.github.io/blog/springboot/restfulapi/</link>
+      <pubDate>Wed, 04 Mar 2020 18:09:27 +0800</pubDate>
+      
+      <guid>https://trumpzhang.github.io/blog/springboot/restfulapi/</guid>
+      <description>RESTFUL是一种网络应用程序的设计风格和开发方式，基于HTTP，可以使用XML格式定义或JSON格式定义。RESTFUL适用于移动互联网厂商作为业务使能接口的场景，实现第三方OTT调用移动网络资源的功能，动作类型为新增、变更、删除所调用资源。 REST（英文：Representational State Transfer，简称REST）描述了一个架构样式的网络系统，比如 web 应用程序。 在目前主流的三种Web服务交互方案中，REST相比于SOAP（Simple Object Access protocol，简单对象访问协议）以及XML-RPC更加简单明了，无论是对URL的处理还是对Payload的编码，REST都倾向于用更加简单轻量的方法设计和实现。值得注意的是REST并没有一个明确的标准，而更像是一种设计的风格。</description>
+    </item>
+    
+  </channel>
+</rss>

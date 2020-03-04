@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+  <meta charset="utf-8">
+  <title>张志宇的博客</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A coder">
+  <meta name="author" content="张志宇">
+  <meta name="generator" content="Hugo 0.65.1" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://trumpzhang.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://trumpzhang.github.io/images/favicon.png " type="image/x-icon">
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom">
+      <a class="navbar-brand mobile-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+          src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/trumpzhang/"><i class="ti-github"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://trumpzhang.github.io"><img class="img-fluid"
+            src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io"> Home </a>
+          </li>
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/blog">Blog</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://trumpzhang.github.io/contact">Contact</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://trumpzhang.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        
+        <a href="/categories/spring-cloud"
+          class="text-primary">Spring cloud</a>
+        
+        <h2>2.服务注册与发现</h2>
+        <div class="mb-3 post-meta">
+          <span>By 张志宇</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>04 March 2020</span>
+          
+        </div>
+        
+        <img src="https://trumpzhang.github.io/images/springCloud/springCloud.jpg" class="img-fluid w-100 mb-4" alt="2.服务注册与发现">
+        
+        <div class="content mb-5">
+          <p>2.1 微服务的注册中心</p>
+<p>注册中心相当于微服务架构中的“通讯录”，它记录了服务和服务地址的映射关系，在分布式架构中，服务会注册到这里，当服务需要调用其他服务时，就在这里找到服务的地址进行调用。</p>
+<p>2.1.1 注册中心的主要作用</p>
+<p>服务注册中心是微服务架构中非常重要的一个组件，在微服务架构里主要起到了协调者的一个作用，注册中心一般包含如下几个功能：</p>
+<p>（1）服务发现</p>
+<ul>
+<li>服务注册/反注册：保存服务提供者和服务调用者的信息</li>
+<li>服务订阅/取消订阅：服务调用者订阅服务提供者的信息，最好有实时推送的功能</li>
+<li>服务路由（可选）：具有筛选整合服务提供者的能力。</li>
+</ul>
+<p>（2）服务配置</p>
+<ul>
+<li>配置订阅：服务提供者和服务调用者订阅微服务相关的配置</li>
+<li>配置下发：主动将配置推送给服务提供者和服务调用者</li>
+</ul>
+<p>（3）服务健康检测</p>
+<ul>
+<li>检测服务提供者的健康情况</li>
+</ul>
+<p>2.1.2 常见的注册中心</p>
+<p>(1)Zookeeper</p>
+<p>Zookeeper是一个分布式服务框架，是Apache Hadoop的一个子项目，主要是用来解决分布式应用中经常用到的一些数据管理问题，如：统一服务命名、状态同步服务、集群管理、分布式应用配置项的管理等，即Zookeeper=文件系统+监听通知机制。</p>
+<p>(2)Eureka</p>
+<p>Eureka由Java语言开发，基于Restful API开发的服务注册与发现组件，Springcloud Netflix中的重要组件</p>
+<p>(3)Consul</p>
+<p>Consul是由HashiCorp基于Go语言开发的支持多数据中心分布式高可用的服务注册和服务发布软件，采用Raft算法保证服务的一致性，且支持健康检查。</p>
+<p>(4)Nacos</p>
+<p>Nacos是一个更易于构建云原生应用的动态服务发现、配置管理和服务管理平台，简单来说Nacos就是注册中心+配置中心的组合，提供简单易用的特性集，帮助我们解决微服务开发必会涉及到的服务注册与发现，服务配置，服务管理等问题。Nacos还是Spring Cloud Alibaba组件之一，负责服务注册与发现。</p>
+<p>上述注册中心的异同点：</p>
+<table>
+<thead>
+<tr>
+<th>组件名</th>
+<th>语言</th>
+<th>CAP</th>
+<th>一致性算法</th>
+<th>服务健康检查</th>
+<th>对外暴露接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eureka</td>
+<td>Java</td>
+<td>AP</td>
+<td>无</td>
+<td>可配支持</td>
+<td>Http</td>
+</tr>
+<tr>
+<td>Consul</td>
+<td>go</td>
+<td>CP</td>
+<td>Raft</td>
+<td>支持</td>
+<td>Http/DNS</td>
+</tr>
+<tr>
+<td>Zookeeper</td>
+<td>java</td>
+<td>CP</td>
+<td>Paxos</td>
+<td>支持</td>
+<td>客户端</td>
+</tr>
+<tr>
+<td>Nacos</td>
+<td>java</td>
+<td>AP</td>
+<td>Raft</td>
+<td>支持</td>
+<td>Http</td>
+</tr>
+</tbody>
+</table>
+<p>CAP原理</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>强调</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C</td>
+<td>一致性</td>
+<td>保持多节点数据一致</td>
+</tr>
+<tr>
+<td>A</td>
+<td>可用性</td>
+<td>保持服务可用：多节点</td>
+</tr>
+<tr>
+<td>P</td>
+<td>分区容错性</td>
+<td>将数据存到多个节点</td>
+</tr>
+</tbody>
+</table>
+<p>不可能同时满足CAP:</p>
+<ul>
+<li>AC:放弃分区容错，物理数据库</li>
+<li>AP:可以短暂允许数据不一致，NoSql数据库</li>
+<li>CP:放弃可用性,zookeeper</li>
+</ul>
+<p>2.2 Eureka概述</p>
+<p>2.2.1 Eureka的基础知识</p>
+<p>Eureka是Netflix开发的服务发现框架，SpringCloud将它集成在自己的子项目spring-cloud-netflix中，实现SpringCloud的服务发现功能。
+<img src="https://img-blog.csdnimg.cn/20200223130120583.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+上图简要描述了Eureka的基本架构，由3个角色组成：</p>
+<ol>
+<li>Eureka Server</li>
+</ol>
+<ul>
+<li>提供服务注册和发现</li>
+</ul>
+<ol start="2">
+<li>Service Provider</li>
+</ol>
+<ul>
+<li>服务提供方</li>
+<li>将自身服务注册到Eureka，从而使服务消费方能够找到</li>
+</ul>
+<p>3.Service Consumer</p>
+<ul>
+<li>服务消费方</li>
+<li>从Eureka获取注册服务列表，从而能够消费服务</li>
+</ul>
+<p>2.2.2 Eureka的交互流程与原理
+<img src="https://img-blog.csdnimg.cn/20200223164716726.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+2.3 使用Eureka</p>
+<p>(1)搭建eureka server</p>
+<ul>
+<li>创建工程模块（使用Initializr）</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/2020022317400478.png" alt="在这里插入图片描述"></p>
+<ul>
+<li>导入坐标</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">&lt;properties<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">        &lt;java.version&gt;1.8&lt;/java.version&gt;</span>
+        &lt;spring-cloud.version&gt;Hoxton.SR1&lt;/spring-cloud.version&gt;
+&lt;/properties<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&lt;!--eureka-server 依赖--&gt;</span>
+&lt;dependency<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">       &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span>
+       &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt;
+&lt;/dependency<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&lt;dependencyManagement&gt;</span>
+	&lt;dependencies<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">            &lt;dependency&gt;</span>
+                &lt;groupId&gt;org.springframework.cloud&lt;/groupId<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">                &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;</span>
+                &lt;version&gt;${spring-cloud.version}&lt;/version<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">                &lt;type&gt;pom&lt;/type&gt;</span>
+                &lt;scope&gt;import&lt;/scope<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">            &lt;/dependency&gt;</span>
+	&lt;/dependencies&gt;
+&lt;/dependencyManagement<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">
+</span></code></pre></div><ul>
+<li>配置application.yml</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">server</span>:
+  <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">9000</span>
+<span style="color:#66d9ef">spring</span>:
+  <span style="color:#66d9ef">application</span>:
+    <span style="color:#66d9ef">name</span>: eureka-server
+<span style="color:#66d9ef">eureka</span>:
+  <span style="color:#66d9ef">instance</span>:
+    <span style="color:#66d9ef">hostname</span>: localhost
+  <span style="color:#66d9ef">client</span>:
+    <span style="color:#66d9ef">service-url</span>:
+      <span style="color:#66d9ef">defaultZone</span>: http://${eureka.instance.hostname}:${server.port}/eureka
+    <span style="color:#66d9ef">register-with-eureka</span>: <span style="color:#66d9ef">false</span> <span style="color:#75715e">#是否将自己注册到注册中心</span>
+    <span style="color:#66d9ef">fetch-registry</span>: <span style="color:#66d9ef">false</span> <span style="color:#75715e">#是否从eureka中获取注册信息</span>
+</code></pre></div><ul>
+<li>配置启动类</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootApplication</span>
+<span style="color:#75715e">//激活eureka server注册中心
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@EnableEurekaServer</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EurekaServerApplication</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>EurekaServerApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>(2)将服务提供者注册到eurekaServer上
+搭建服务提供方
+服务提供方的依赖：
+<img src="https://img-blog.csdnimg.cn/20200219142637884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>引入坐标</li>
+</ul>
+<pre><code>&lt;dependency&gt;
+   &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+   &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre><ul>
+<li>配置application.yml</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">server</span>:
+  <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">8080</span>
+<span style="color:#66d9ef">spring</span>:
+  <span style="color:#66d9ef">datasource</span>:
+    <span style="color:#66d9ef">username</span>: root
+    <span style="color:#66d9ef">password</span>: <span style="color:#ae81ff">123456</span>
+    <span style="color:#66d9ef">url</span>: jdbc:mysql://localhost:<span style="color:#ae81ff">3306</span>/test?useUnicode=<span style="color:#66d9ef">true</span><span style="color:#75715e">&amp;characterEncoding=utf-8&amp;useSSL=true&amp;serverTimezone=UTC</span>
+    <span style="color:#66d9ef">driver-class-name</span>: com.mysql.cj.jdbc.Driver
+  <span style="color:#66d9ef">application</span>:
+    <span style="color:#66d9ef">name</span>: service-provider <span style="color:#75715e">#作为微服务的名称</span>
+<span style="color:#66d9ef">mybatis</span>:
+  <span style="color:#66d9ef">type-aliases-package</span>: com.pojo
+<span style="color:#75715e">#配置eureka</span>
+<span style="color:#66d9ef">eureka</span>:
+  <span style="color:#66d9ef">client</span>:
+    <span style="color:#66d9ef">service-url</span>:
+      <span style="color:#66d9ef">defaultZone</span>: http://localhost:<span style="color:#ae81ff">9000</span>/eureka
+  <span style="color:#66d9ef">instance</span>:
+    <span style="color:#66d9ef">prefer-ip-address</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e">#使用ip注册</span>
+
+
+</code></pre></div><ul>
+<li>配置启动类</li>
+</ul>
+<p>加上@EnableDiscoveryClient或@EnableEurekaClient注解</p>
+<p>最新的SpringBoot可不配置注解</p>
+<pre><code>public class ServiceProviderApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ServiceProviderApplication.class, args);
+    }
+}
+</code></pre><p>(3)服务消费者通过注册中心获取服务列表并调用
+由于服务消费方只需要使用Restful接口，因此只需要勾选Spring Web组件即可。</p>
+<ul>
+<li>引入坐标</li>
+</ul>
+<pre><code>&lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre><ul>
+<li>配置yml文件</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">server</span>:
+  <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">8081</span>
+<span style="color:#66d9ef">spring</span>:
+  <span style="color:#66d9ef">application</span>:
+    <span style="color:#66d9ef">name</span>: service-consumer
+<span style="color:#66d9ef">eureka</span>:
+  <span style="color:#66d9ef">client</span>:
+    <span style="color:#66d9ef">service-url</span>:
+      <span style="color:#66d9ef">defaultZone</span>: http://localhost:<span style="color:#ae81ff">9000</span>/eureka
+</code></pre></div><ul>
+<li>配置启动类</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javaScript" data-lang="javaScript"><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">EnableDiscoveryClient</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ServiceConsumerApplication</span> {
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String[] <span style="color:#a6e22e">args</span>) {
+        <span style="color:#a6e22e">SpringApplication</span>.<span style="color:#a6e22e">run</span>(<span style="color:#a6e22e">ServiceConsumerApplication</span>.<span style="color:#66d9ef">class</span>, <span style="color:#a6e22e">args</span>);
+    }
+}
+</code></pre></div><p>(4)查看注册中心
+访问 <code>http://localhost:9000/</code>
+<img src="https://img-blog.csdnimg.cn/20200223192750781.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI2OTMxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <a href="https://trumpzhang.github.io"><img src="https://trumpzhang.github.io/images/logo.png" alt="张志宇的博客"></a>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Contact Me</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark" href="tel:***"><i
+                class="ti-mobile mr-3 text-primary"></i>***</a></li>
+          <li class="mb-3"><i class="ti-location-pin mr-3 text-primary"></i>甘肃兰州</li>
+          <li class="mb-3"><a class="text-dark" href="mailto:2567269204@qq.com"><i
+                class="ti-email mr-3 text-primary"></i>2567269204@qq.com</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/trumpzhang/">github</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Categories</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/centos">Centos</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/django">Django</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/hadoop">Hadoop</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/qt">Qt</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/scala">Scala</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-boot">Spring boot</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/spring-cloud">Spring cloud</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/ssm">Ssm</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/vue">Vue</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/about">About</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/blog">Blog</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://trumpzhang.github.io/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | @2020 <a href="https://trumpzhang.github.io">张志宇</a> All Rights Reserved |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var indexURL = "https://trumpzhang.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://trumpzhang.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/mark.js"></script>
+
+<script src="https://trumpzhang.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://trumpzhang.github.io/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script></body>
+</html>
